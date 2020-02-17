@@ -70,13 +70,16 @@ div img {
   **/
 
 #container-de-descricao {
+    padding-top: 3em;
     background-color: #2274a5;
     color: white;
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+    padding: 3em 0px;
 }
+
+
 
 #container-para-comprar {
     background-color: #e7eb90;
@@ -142,3 +145,5 @@ td button:hover {
 #back-button:hover {
     background-color: #635a3d
 }
+
+
