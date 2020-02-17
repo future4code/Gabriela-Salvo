@@ -156,3 +156,12 @@ td button:active {
 #container-para-comprar p {
     width: 550px;
 }
+
+.container-do-search input {
+   border-bottom: 2px solid black;
+   border-top: none;
+   border-left: none;
+   border-right: none;
+
+   
+}
