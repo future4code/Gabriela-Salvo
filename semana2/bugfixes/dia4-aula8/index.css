@@ -83,7 +83,7 @@ div img {
 }
 
 #container-de-descricao>ol {
-    text-align: justify;
+    /*text-align: justify;*/
     padding: 3em;
     width: 230px;
     margin: 0 auto;
@@ -129,6 +129,7 @@ td button {
 }
 
 td button:hover {
+    
     background-color: #796b1d;
 }
 td button:active {
@@ -147,7 +148,12 @@ td button:active {
     opacity: 100%;
 }
 
+
+button:focus {
+    outline: 0;
+}
 #back-button {
+   
     background-color: white;
     width: 100px;
     height: 20px;
@@ -173,3 +179,5 @@ td button:active {
 
    
 }
+
+
