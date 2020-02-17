@@ -31,7 +31,9 @@ img {
 }
 
 div>p:first-child {
-    display: inline;
+    display: block;
+    width: 210px;
+    margin: 0 auto;
 }
 
 div img {
@@ -78,6 +80,7 @@ div img {
 #container-de-descricao>ol {
     padding: 3em 0px;
 }
+
 
 
 
