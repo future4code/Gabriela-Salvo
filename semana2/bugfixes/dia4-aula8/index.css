@@ -9,7 +9,9 @@
     padding: 0;
     list-style-type: decimal;
     font-family: 'Roboto', sans-serif;
+    
 }
+
 
 
 h2 {
@@ -81,18 +83,17 @@ div img {
 }
 
 #container-de-descricao>ol {
+    text-align: justify;
     padding: 3em;
-    width: 300px;
+    width: 230px;
     margin: 0 auto;
 
    
-}
-
-ol 
+} 
 
 
 #container-para-comprar {
-    background-color: #e7eb90;
+    background-color: rgb(231, 235, 144);
 }
 
 #container-para-comprar>p {
