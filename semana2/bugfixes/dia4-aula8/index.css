@@ -1,0 +1,183 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: decimal;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 80px;
+}
+
+
+div>p:first-child {
+    display: block;
+    width: 210px;
+    margin: 0 auto;
+}
+
+div img {
+   /* background: black;*/
+}
+
+.botao-amarelo {
+    margin: 0 auto;
+    display: block;
+    background-color: #ffaf43;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+}
+
+.icone {
+    width: 33px;
+}
+
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    padding-top: 3em;
+    background-color: #2274a5;
+    color: white;
+}
+
+#container-de-descricao>ol {
+    /*text-align: justify;*/
+    padding: 3em;
+    width: 230px;
+    margin: 0 auto;
+
+   
+} 
+
+
+#container-para-comprar {
+    background-color: rgb(231, 235, 144);
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+td button:hover {
+    
+    background-color: #796b1d;
+}
+td button:active {
+    color: #ffffff;
+}
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+.container-do-search img:hover {
+    opacity: 30%;
+}
+
+.container-do-search img:active {
+    opacity: 100%;
+}
+
+
+button:focus {
+    outline: 0;
+}
+#back-button {
+   
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+
+
+#container-para-comprar p {
+    width: 550px;
+}
+
+.container-do-search input {
+    border:0;
+   border-bottom: 2px solid black;
+
+
+   
+}
+
+
