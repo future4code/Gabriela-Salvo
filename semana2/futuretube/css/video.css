@@ -1,0 +1,17 @@
+main {
+    display: flex;
+    max-width: 1200px;
+    height: 50vh;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding: 2vh;
+    margin: 5vh;
+}
+
+
+
+.video-principal h1, p {
+    margin-left: 2vh;
+
+}
