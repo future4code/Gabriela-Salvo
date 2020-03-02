@@ -100,13 +100,21 @@ console.log ("A temperatura convertida de Celsius para kelvin é  " + calculoKel
 */
 
 
-/* 2.
+ //2.
+ /*
 let serieFavorita = (prompt("Qual a sua série Favorita?"))
+console.log ("Resposta:" + serieFavorita)
 let corFavorita = (prompt("Qual sua cor favorita?"))
+console.log ("Resposta:" + corFavorita)
 let bandaFavorita =(prompt("Qual sua banda favorita?"))
+console.log ("Resposta:" + bandaFavorita)
 let jogoFavorito = (prompt("Qual seu jogo favorito?"))
+console.log ("Resposta:" + jogoFavorito)
 let casa = (prompt("Onde você mora?"))
+console.log ("Resposta:" + casa)
+
 */
+
 
 /*const valorKilowatts = 0.05
 let consumoCasa = Number(prompt("Qual foi o seu consumo nesse mês?"))
@@ -115,22 +123,23 @@ console.log ("O valor a ser pago por essa residencia é " +somatorio +"reais")
 
 */
 
-/*
 
-a.
+/*a.
 const valorKilowatts = 0.05
 let consumoCasa = 280
 let valorFinalCasa = valorKilowatts*consumoCasa
 console.log ("O valor a ser pago por essa casa é "+ valorFinalCasa + "reais")
 */
 
-/*
 
-b.
+
+/*b.
 const valorKilowatts = 0.05
 let consumoCasa = 280
 let valorFinalCasa = valorKilowatts*consumoCasa
 let desconto = 0.15
 let valorComDesconto = valorFinalCasa-desconto
 console.log("O valor da casa com desconto fica em "+ valorComDesconto)
+
+*/
 
