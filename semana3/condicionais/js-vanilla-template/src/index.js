@@ -36,7 +36,7 @@ d. Considere que um usuário queira comprar uma `Pêra`, qual seria a mensagem i
 
  */
 
- 
+
 
 
 //EXERCÍCIO 3
@@ -80,6 +80,9 @@ Se os numeros fossem iguais nesse meu programa, ele imprimiria
 
 
 
+
+/*
+b. 
 
 const primeiroNumero = Number(prompt("Digite um numero de 1 a 10"))
 const segundoNumero = Number(prompt("Digite um numero de 1 a 10"))
@@ -128,6 +131,66 @@ if ((primeiroNumero > segundoNumero) && (segundoNumero > terceiroNumero)) {
 else {
     console.log ("Preciso de numeros diferentes pra funcionar!")
 }
+
+*/
+
 // EXERCÍCIO 5
 
+// a) LINK DRIVE COM ARVORE CONDICIONAL:
 
+// https://drive.google.com/file/d/12x8AnhuMd6ljkdGwOUWJI2ROXlKYneDw/view?usp=sharing
+
+
+
+
+
+
+
+
+/*
+
+b)
+
+let resposta = prompt("tem vertebras ? (s/n)");
+if (resposta === "s"){
+    
+   let resposta = prompt("É mamifero? (s/n)");
+
+    if (resposta ==="s"){
+        let resposta = prompt("É racional? (s/n)");
+        if(resposta === "s"){
+            console.log("É humano");
+        }
+        else {
+            console.log("É um mamifero não racional");
+        }
+    }
+
+    else {
+        let resposta = prompt("tem penas ? (s/n)") 
+        if(resposta === "s"){
+            console.log("é uma ave");
+        }
+        else {
+       let resposta = prompt("é terrestre ? (s/n)");
+        if(resposta==="s"){
+
+        let = prompt("Vive parte da vida na agua? (s/n)");
+        if(let==="s"){
+            console.log("É um anfibio");
+        }
+        else{
+            console.log("É um reptil");
+        }
+    }
+    else{
+        console.log("É um peixe");
+        }
+    }
+}
+}
+else{
+    console.log("É invertebrado")
+}
+
+*/
