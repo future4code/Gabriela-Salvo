@@ -72,12 +72,14 @@ console.log(arrayOriginalDividido)
 */
 
 /*
-d) const arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
-let texto
+d) let arrayOriginal = [80, 30, 130, 40, 60, 21, 70, 120, 90, 103, 110, 55]
+let index = 0
+const frases = []
 for(let i = 0; i < arrayOriginal.length; i++){
-    texto = arrayOriginal[i]
-    console.log("O elemento do índex ", i , " é " , texto)
+    index = arrayOriginal[i]
+    frases.push("O elemento do índex "+ i+ "é "+ index)
 }
+console.log(frases)
 
 */
 
