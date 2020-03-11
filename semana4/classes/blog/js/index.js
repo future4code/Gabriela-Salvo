@@ -29,6 +29,9 @@ function criarPostagem() {
     
 }
 
+
+
+
 class postBlog {
     constructor(autor, titulo, postagem) {
         this.autor = autor
@@ -37,6 +40,8 @@ class postBlog {
     }
 
 }
+
+
 
 
 
