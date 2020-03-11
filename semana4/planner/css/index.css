@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.cabecalho {
+    background-color: #A9BCF5;
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+   padding: 2vh;
+}
+#container {
+  background-color: #F2F5A9;
+  border: 1px solid #A9BCF5 ;
+}
+
+#dias-da-semana {
+  
+    display: grid;
+    grid-template-areas: "cabecalho"
+    "conteudo"
+    ;
+grid-template-rows: 80vh;          
+grid-template-columns: repeat(7, 1fr);                
+display: grid;
+width: 1000px;
+margin: 0 auto;
+text-align: center;
+
+
+}
+
+/*#container {
+  display: grid;
+  grid-template-areas: "cabecalho"
+  "conteudo"
+  "rodape";
+grid-template-rows: 80vh 10vh;          
+grid-template-columns: repeat(7, 1fr);                
+display: grid;
+width:  1000px;
+margin: 0 auto;
+}
+*/
+
+#dia:nth-child(1) {
+ 
+  grid-area: "conteudo";
+  grid-column: 1/1;
+  grid-row: 1;
+ 
+}
+#dia:nth-child(2) {
+
+  grid-row: 1/1;
+  grid-column: 2;
+  grid-area: "conteudo";
+  
+}
+
+#dia:nth-child(3){
+ 
+  grid-row: 1;
+  grid-column: 3;
+  grid-area: "conteudo";
+  
+}
+
+#id:nth-child(4) {
+  
+  grid-row: 1;
+  grid-column: 4;
+  grid-area: "conteudo";
+}
+#id:nth-child(5) {
+  
+  grid-row: 1;
+  grid-column: 6;
+  grid-area: "conteudo";
+ 
+  
+}
+
+
+#footer {
+
+  height: 10vh;
+background-color: #A9BCF5; 
+  text-align: center;
+}
