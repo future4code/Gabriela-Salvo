@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="index.js" defer=""></script>
     <style>
-    
         @import url('https://fonts.googleapis.com/css?family=Lobster+Two|Montserrat:200|Quicksand:600&display=swap');
-</style>
+    </style>
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <title>Document</title>
 </head>
+
 <body>
-    
-<header>
-    <div  class="cabecalho">
-    <div><h1>Blog </h1></div>
-    <div><a href="index.html">Home</a></div>
-    <div><a href="index.html">Links uteis</a></div>
-</div>
-</header>
 
-<main>
-    <div id="conteudo-central">
-        <form id="formulario-post">
-            <label for="nome-autor">Autor do post:</label>
+    <header>
+        <div class="cabecalho">
+            <div>
+                <h1>Blog </h1>
+            </div>
+            <div><a href="index.html">Home</a></div>
+            <div><a href="index.html">Links uteis</a></div>
+        </div>
+    </header>
 
-            <input type="text" id="nome-autor">
+    <main>
+        <div id="conteudo-central">
+            <form id="formulario-post">
+                <!--AUTOR-->
+                Autor:
+                <input type="text" id="nome-autor">
 
-            <label for="título-post">
-                Título da Postagem</label>
-              <input type="text">
-            </label>
-                <p>Postagem</p>
+                <!--TITULO DA POSTAGEM-->
+                Título da Postagem
+
+                <input type="text" id="titulo">
+                <!--POSTAGEM-->
+                Postagem
                 <textarea rows="10"></textarea id="postagem-blog">
-            <input type="submit" value="Fazer postagem">
+            <button  id="enviar-post"  onclick="criarPostagem()">Fazer Postagem</button>
         </form>
         
     </div>
+
+    <div id="postagem"></div>
 </main>
 
 </body>
