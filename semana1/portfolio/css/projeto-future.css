@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.projeto-future-img {
+    margin-top: 2em;
+ 
+
+    width: 700px;
+}

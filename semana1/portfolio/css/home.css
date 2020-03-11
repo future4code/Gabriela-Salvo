@@ -1,0 +1,80 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F5F6CE;
+    text-decoration: none;
+    list-style-type: none;
+   /* overflow: hidden;*/
+}
+
+
+.conteudo-principal {
+    justify-content: center;
+    display: flex;
+    margin-top: 5%;
+ 
+   
+}
+
+.conteudo-principal h1 {
+    color;
+    font-weight: lighter;
+    font-size: 60px;
+}
+
+/*ICONES REDES SOCIAIS*/
+
+.rede-instagram, .rede-github, .rede-linkedin {
+    width: 33px;
+   margin: 1em;
+}
+
+.redes-sociais {
+    display: flex;
+   
+  /*transform: scaleX(1.1);
+  transition: 3s;
+  transition: all 0.3s ease-in 1 ease-out 1s;*/
+    justify-content: center;
+}
+
+.secao-projetos, .secao-projetos-links,.formulario-contato,.texto-cliente {
+    margin-top: 2em;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.secao-caixas-projetos {
+   font-size: 1em;
+    width: 400px;
+    
+}
+.secao-caixas-projetos  p {
+    text-align: justify;
+    line-height: 1.2em;
+    margin-top: 1em;
+}
+
+.secao-caixas-projetos a, .secao-projetos-links a {
+    color:#0B3B2E;
+    font-weight: bold;
+    
+}
+
+
+
+.formulario {
+    margin-top: 1em;
+    border-top: 1px solid silver;
+    
+}
+.formulario-contato {
+    display: flex;
+}
+
+.texto-cliente {
+    font-weight: bold;
+}
