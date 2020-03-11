@@ -1,10 +1,12 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="index.js" defer=""></script>
+    <script type="text/javascript" src="js/index.js" defer=""></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lobster+Two|Montserrat:200|Quicksand:600&display=swap');
     </style>
@@ -25,11 +27,11 @@
     </header>
 
     <main>
-        <div id="conteudo-central">
-            <form id="formulario-post">
+       
+            <form id="formulario-post" action="#">
                 <!--AUTOR-->
                 Autor:
-                <input type="text" id="nome-autor">
+          <input type="text" id="nome-autor">
 
                 <!--TITULO DA POSTAGEM-->
                 Título da Postagem
@@ -37,13 +39,16 @@
                 <input type="text" id="titulo">
                 <!--POSTAGEM-->
                 Postagem
-                <textarea rows="10"></textarea id="postagem-blog">
-            <button  id="enviar-post"  onclick="criarPostagem()">Fazer Postagem</button>
-        </form>
-        
-    </div>
+                <textarea id="postagem-blog"></textarea >
 
-    <div id="postagem"></div>
+                <button  id="enviar-post"  onclick="criarPostagem()">Fazer Postagem</button>
+          </form>
+        
+
+
+    <div id="postagem"> 
+      
+    </div>
 </main>
 
 </body>
