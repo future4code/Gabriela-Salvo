@@ -7,7 +7,7 @@
 function insereTarefa() {
 
    const input = document.getElementById("input")
-   const novaTarefa =(input).value
+   const novaTarefa =input.value
    
    const selecioneDia = document.getElementById("select")
    const diaDaSemana = selecioneDia.value
@@ -19,18 +19,18 @@ function insereTarefa() {
        console.log("Quero trabalhar! Digite uma tarefa")
     }else{
             switch (diaDaSemana){
-                case "Segunda":
-                    let listaDeTarefasSegunda =document.getElementsByTagName("segundaFeira")
-                    listaDeTarefasSegunda.innerHTML += "<li>" + novaTarefa + "</li>"
+                case "segunda":
+                    let listaSegunda =document.getElementsById("segunda")
+                    listaSegunda.innerHTML += "<li>" + novaTarefa + "</li>"
                     break;
-                case "Terca":
-                    let listaDeTarefasTerca =document.getElementById("tercaFeira")
-                  listaDeTarefasTerca.innerHTML += "<li>" + novaTarefa + "</li>"
+                case "terca":
+                    let listaTerca =document.getElementById("terca")
+                  listaTerca.innerHTML += "<li>" + novaTarefa + "</li>"
                     break;
-                case "Quarta":
-                    let listaDeTarefasQuarta =document.getElementById("quartaFeira")
+                case "quarta":
+                    let listaQuarta =document.getElementById("quarta")
                     quarta.innerHTML += "<li>" + novaTarefa + "</li>"
-                    listaDeTarefasQuarta.innerHTML += tarefas+ "<li>" + novaTarefa + "</li>"
+                    listaQuarta.innerHTML += tarefas+ "<li>" + novaTarefa + "</li>"
                     break;
                 case "quinta":
                     quinta.innerHTML += "<li>" + novaTarefa + "</li>"
