@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/index.js" defer=""></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lobster+Two|Montserrat:200|Quicksand:600&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="cabecalho">
+            <div>
+                <h1>Blog </h1>
+            </div>
+            <div><a href="index.html">Home</a></div>
+            <div><a href="index.html">Links uteis</a></div>
+        </div>
+    </header>
+
+    <main>
+       
+            <form id="formulario-post" action="#">
+                <!--AUTOR-->
+                Autor:
+          <input type="text" id="nome-autor">
+
+                <!--TITULO DA POSTAGEM-->
+                Título da Postagem
+
+                <input type="text" id="titulo">
+                <!--POSTAGEM-->
+                Postagem
+                <textarea id="postagem-blog"></textarea >
+
+                <button  id="enviar-post"  onclick="criarPostagem()">Fazer Postagem</button>
+          </form>
+        
+
+<section>
+    <div id="postagem"> 
+
+      
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
