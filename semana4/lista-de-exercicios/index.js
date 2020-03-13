@@ -23,5 +23,12 @@ a função com o return retornará o valor em dólar (que é uma variável)
  referência de 150 em Ações e 200 no tesouro direto mas este retornrá falso, pois
  não existe esse case
  
+
+
+ 3)Recebemos um array com números aleatórios e duas arrays vaziias
+
+ percorremos todo array e o programa pega apenas os números pares (que resultam em zero na divisao)
+ e colocam eles no array1 e os números ímpares, colocando no array2
+ no final o console mostra a quantidade de numeros no array1 e no array2
  
 */
