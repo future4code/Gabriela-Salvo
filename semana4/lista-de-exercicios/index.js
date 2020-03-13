@@ -30,5 +30,20 @@ a função com o return retornará o valor em dólar (que é uma variável)
  percorremos todo array e o programa pega apenas os números pares (que resultam em zero na divisao)
  e colocam eles no array1 e os números ímpares, colocando no array2
  no final o console mostra a quantidade de numeros no array1 e no array2
- 
+
+
+ 4)
+ Recebe um array numeros de números aleatórios
+
+ duas variávels uma numero1 que recebe Infinity (que eu nao entendi bem o que é
+    mas pelo contexto parece ser números infinitos)
+    e a let numero2 que recebe apenas o valor 0.
+
+    percorremos todo o array numeros
+    e se o número for menor que algum número do array numero1
+    o numero1 recebe o o número pelo qual foi comparado
+
+    e se algum numerero do array numero for maior que algum do array2
+    o numero do array numero2 recebe o numero do array numero.
+    o console nos mostra novamente os arrays atualizados
 */
