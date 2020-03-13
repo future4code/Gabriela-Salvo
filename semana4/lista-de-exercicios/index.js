@@ -47,3 +47,14 @@ a função com o return retornará o valor em dólar (que é uma variável)
     o numero do array numero2 recebe o numero do array numero.
     o console nos mostra novamente os arrays atualizados
 */
+
+/* Exercícios de Lógica de Programação
+
+1)
+Usando FOR
+
+const array = [1, 3, 4, 10]
+for (let i = 0; i < array.length; i++){
+    console.log("numero"+ i)
+
+}
