@@ -75,3 +75,12 @@ for (indice of array) {
 
 console.log ("numero "+ indice )
 }
+
+2)
+
+a) FALSE
+b)FALSE
+c)TRUE
+d)TRUE
+e)FALSE
+/*
