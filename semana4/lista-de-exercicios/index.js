@@ -83,4 +83,34 @@ b)FALSE
 c)TRUE
 d)TRUE
 e)FALSE
+
+3)
+O código nao funciona porque ele apenas
+fez a constante quantidadeDeNumerosPares mas
+nao atribuiu nenhum valor  ela
+
+*/
+// Esse eu não entendi bem como fazer
+// const quantidadeDeNumerosPares
+// let i = 0
+// while(i <= quantidadeDeNumerosPares) {
+//   console.log(i*2)
+// }
+
+
 /*
+4)
+
+function ladosTriangulo (a, b, c) {
+    
+   
+    if (a === b === b ){
+        console.log("Esse triângulo é isosceles")
+    }else if (a!== b &&  b!==c) {
+        console.log("Esse triângulo é escaleno ")
+    }
+        console.log("Esse triângulo é equilátero")
+    }
+
+
+ladosTriangulo(1, 1 ,1 )
