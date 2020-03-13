@@ -58,3 +58,20 @@ for (let i = 0; i < array.length; i++){
     console.log("numero"+ i)
 
 }
+
+Usando ForEach
+
+const array = [1, 3, 4, 10]
+array.forEach (console.log ("numero"+ array))
+
+
+
+Usando for of
+
+const array = [1, 3, 4, 10]
+
+for (indice of array) {
+    indice ++
+
+console.log ("numero "+ indice )
+}
