@@ -1,0 +1,171 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+ 
+  
+}
+
+
+.header {
+  height: 15vh;
+  margin-bottom: 5vh;
+  color: rgb(253, 253, 253);
+  background-color: rgba(95, 2, 15, 0.938);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+ 
+[type='text'] {
+border-radius: 2%;
+}
+
+
+.container {
+  justify-items: center;
+  
+  
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(4, 1fr);
+  
+  
+}
+
+video {
+  border: 1px solid black;
+  width: 15vw;
+  
+}
+
+.irlanda {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.globulos {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.espaco {
+  grid-column: 4;
+  grid-row: 1;
+}
+.praia {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.timelapse {
+  grid-column: 2;
+  grid-row: 2;
+}
+.rabbit{
+  grid-column: 3;
+  grid-row: 2;
+}
+.sideral {
+  grid-column: 4;
+  grid-row: 2;
+}
+.future {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.footer {
+  font-size: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(95, 2, 15, 0.938);
+  width: 101%;
+  margin: -0% -1%;
+  margin-bottom: -1%;
+  height: 20vh;
+  position: relative;;
+  bottom: 0;
+  margin-top: 2vh;
+ 
+
+  
+}
+
+.footer p {
+  color: rgb(253, 253, 253);
+  margin: 2vh;
+}
+
+.menu-lateral {
+  grid-row: 1/4;
+  grid-column: 1;
+ 
+}
+
+.menu-lateral li {
+  text-align: justify;
+ padding: 15px;
+ 
+ 
+}
+
+.menu-lateral li a {
+  color:  #c5c5c5;
+
+}
+
+.menu-lateral ul {
+  position: absolute;
+  top: 25;
+  ;
+  background-color: #333;
+  width: 15vw;
+  
+}
+
+.check {
+  display: none;
+}
+
+.ícone-hamburguinho {
+  width: 33px;
+  
+}
+
+.icone {
+  position: absolute;
+  left: 0;
+
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+main {
+  display: flex;
+  max-width: 1200px;
+  height: 50vh;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: row-reverse;
+  padding: 2vh;
+  margin: 5vh;
+}
+
+
+
+.video-principal h1, p {
+  margin-left: 2vh;
+
+}
