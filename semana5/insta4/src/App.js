@@ -4,98 +4,45 @@ import Post from './components/Post/Post';
 
 
 
-class Exemplo5 extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // Inicializando o estado
-    this.state = {
-
-      arrayDosPosts =[
-        {nomeUsuario:' paulinha', fotoUsuario:'https://picsum.photos/50/50', fotoPost:'https://picsum.photos/200/150' 
-      ]
-      // Lista de pessoas colocada no estado
-      pessoas: [
-        // O objeto abaixo representa uma pessoa. Ele possui
-        // duas propridades: nome e email.
-        {
-          nome: "Paula",
-          email: "paula@f4.com"
-        },
-        {
-          nome: "João",
-          email: "joao@f4.com"
-        }
-      ]
-    };
-  }
-
-  render() {
-    // Da mesma forma que nos exemplos anteriores, pegamos o array de
-    // pessoas do estado e mapeamos ele para um componente
-    const listaDeComponentes = this.state.pessoas.map(pessoa => {
-      // Porém, cada pessoa não é mais uma string somente, mas sim um objeto
-      // com duas propriedades. Por isso, no momento de colocá-la na tela
-      // precisamos explicitar qual das propriedades queremos mostrar em
-      // cada lugar.
-      return (
-        <p>
-          {pessoa.nome} - {pessoa.email}
-        </p>
-      );
-    });
-
-    return (
-      <div>
-        <h1>Exemplo 5</h1>
-        {/* Como sempre, colocamos a variável com a lista de componentes
-        gerados aqui. */}
-        <div>{listaDeComponentes}</div>
-      </div>
-    );
-  }
-}
-
-export default Exemplo5;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
 class App extends React.Component {
-  render() {
-    return (
-      <div className={'app-container'}>
-        <Post
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
+  constructor(props) {
+    super(props)
+    this.state = {
+      arrayDosPosts :[
+        { nomeUsuario: ' paulinha', fotoUsuario: 'https://picsum.photos/50/50', fotoPost: 'https://picsum.photos/200/150' },
+        { nomeUsuario: 'gabi', fotoUsuario: 'https://picsum.photos/50/10', fotoPost: 'https://picsum.photos/200/160' },
+        { nomeUsuario: 'alexia', fotoUsuario: 'https://picsum.photos/50/32', fotoPost: 'https://picsum.photos/200/163' },
+      ]
 
-<Post
-          nomeUsuario={'Alexia'}
-          fotoUsuario={'https://picsum.photos/50/30'}
-          fotoPost={'https://picsum.photos/200/140'}
-        />
-      </div>
-
-      
-    );
+    }
   }
-}
 
-export default App;
+  render (){
+    return(
+      this.state.arrayDosPosts.map((post, index)=>{
+        return(
+          <div className={'app-container'}>
+            <Post
+            nomeUsuario ={post.nomeUsuario}
+            fotoUsuario ={post.fotoUsuario}
+            fotoPost ={post.fotoPost}
+            key ={index}
+            />
+          </div>
+        )
+      })
+
+    )
+    }
+
+  }
+  export default App
+
+
+
+
+ 
+
+
+
+
