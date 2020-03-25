@@ -29,10 +29,10 @@ class App extends React.Component {
   }
 
   componentDidUpdate() {
-    // const inputDeTarefas = localStorage.getItem( "local-tarefas")
-    // if(inputDeTarefas !== null){
-    //   const 
-    // }
+    const inputDeTarefas = localStorage.getItem( "local-tarefas")
+    if(inputDeTarefas !== null){
+      const 
+    }
 
   };
 
@@ -46,14 +46,26 @@ class App extends React.Component {
   }
 
   criaTarefa = () => {
+    const novatarefa = {
+      id:Date.now
+    }
 
   }
 
   selectTarefa = (id) => {
+    const tarefasFeitas =this.state.tarefas.map(tarefa=> {
+      if(tarefa.id === id) {
+        
+      }
+      return tarefa
+    })
 
   }
 
   onChangeFilter = (event) => {
+    this.setState({
+      filter:event.target.value
+    })
 
   }
 
