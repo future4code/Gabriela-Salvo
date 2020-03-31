@@ -1,22 +1,22 @@
 import React from 'react';
 import axios from 'axios'
-
+import User from './User'
 
 
 class Form extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            inputName:  '',
-            inputEmail: ''
+            inputName: "",
+            inputEmail: ""
         }
     }
-onChangeNome=(event)=>{}
-onChangeEmail=(event)=>{}
+onChangeNome=(event)=>{this.setState({inputName: event.target.value})};
+onChangeEmail=(event)=>{this.setState({inputEmail: event.target.value})}
 createUser = () =>{
 const body = {
-    name: 'banana',
-    email: 'bananadasorte3@gmail.com'
+    name: this.state.inputName,
+    email: this.state.inputEmail
 }
 axios
 .post(
@@ -24,14 +24,14 @@ axios
     body,
     {
         headers: {
-            'api-token': 'ricardo-hamilton'
+            "api-token": "gabriela-hamilton"
         }
     }
 ).then(response=>{
-            alert( 'Dados Salvos!' )
+        alert("Dados Salvos!")
     })
     .catch(error=>{
-        alert('Algo não deu certo!')
+        alert("Algo nao deu certo")
     })
 }
 render(){
@@ -40,9 +40,9 @@ render(){
             {this.props.children}
             <div>
                 <label>Nome: </label>
-                <input></input><br/>
+                <input onChange={this.onChangeNome}></input><br/>
                 <label>E-mail: </label>
-                <input></input><br/><br/>
+                <input onChange={this.onChangeEmail}></input><br/><br/>
                 <button onClick={this.createUser}>Salvar</button>
             </div>
         </div>

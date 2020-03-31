@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import Form from '.Form';
-import User from '.User';
+import Form from './Form';
+import User from './User';
 
 
 class App extends React.Component {
