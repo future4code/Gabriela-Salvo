@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios'
 
 
-const Api = axios.create({
+const api = axios.create({
 
     baseURL:"http://api.tvmaze.com/shows/1/episodes"
 })
@@ -10,4 +10,4 @@ const Api = axios.create({
 
     
   
-export default Api;
+export default api;

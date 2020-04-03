@@ -1,23 +1,44 @@
 import React from 'react';
 import axios from 'axios'
-import Api from './Api'
+import api from './api'
 
 
 class App extends React.Component{
+
   state ={
-    filmes:[],
+    series:[],
   }
-
+  
   async  componentDidMount(){
-    const reposta = await.Api.get
-  }
+    const resposta = await api.get('');
+ 
 
+    this.setState({series:resposta.data})
+  
+
+    
+    
+  }
+  
   render(){
- return(
-   <div>
-     <h1>Lista de filmes</h1>
-   </div>
- )
+        
+    const{series}=this.state
+
+    return(
+      <div>
+        <h1>Lista de series</h1>
+       
+        {series.map(serie => (
+          <li id={serie}>
+            <h2>Titulo:
+            {serie.show.name}
+
+            </h2>
+          </li>
+        ))}
+      </div>
+    )
+  }}
 
   
 export default App;
