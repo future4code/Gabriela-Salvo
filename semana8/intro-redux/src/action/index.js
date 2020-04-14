@@ -3,7 +3,9 @@ export  default function addTodo (text, id) {
         type: "ADD_TASK",
         payload: {
             text:text,
-            id: id
+            id: id,
+            complete: false
+
         }
     }
 }
