@@ -3,22 +3,34 @@ import {connect} from "react-redux"
 
 
 
+
 class TaskList extends React.Component {
-
     render() {
-        console.log(this.props.tasklist)
-        return (
-            <div>
-                <ul>
-        {this.props.tasklist.map(task => <li key={task.id}>{task.text}</li>)}
-                </ul>
-            </div>
-
-        )
-
-
+      return (
+        <ul>
+          {this.props.taskList
+            .filter(task => {
+              const filter = this.props.filter;
+              if (filter === "pendentes") {
+                return task.complete === false;
+              }
+              if (filter === "completas") {
+                return task.complete === true;
+              }
+              return true;
+            })
+            .map(task => (
+              <li key={task.id} onClick={() => this.props.toggleTask(task.id)}>
+                {task.text} - Completa: {String(task.complete)}
+                <button onClick={() => this.props.deleteTask(task.id)}>
+                  Deletar
+                </button>
+              </li>
+            ))}
+        </ul>
+      );
     }
-}
+  }
 
 
 
@@ -37,8 +49,11 @@ const MapStateToProps = (state) => { // recebe o state GLobal do redux
     
 }
 
-const mapDispatchToProps = () => {
-    return{}
+const mapDispatchToProps = (dispatch) => {
+    return{
+
+        toggleTask: (id) => dispatch(toggleTask(id))
+    }
 
 
 }

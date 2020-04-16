@@ -4,11 +4,13 @@ const initialState = { //passamos esse para o combineReducers
     todosList: [
         {
             text: "Task 1",
-            id: 1
+            id: 1,
+            completed: false
         }, 
         {
             text: "Task 1",
-            id: 1
+            id: 1,
+            completed: false
         }
     ] 
 
@@ -18,6 +20,16 @@ const initialState = { //passamos esse para o combineReducers
 export const todos = (state = initialState, action)=> {
 
     switch (action.type) {
+        case "ADD_TASK":
+            const newTodo ={
+               id:Date.now(),
+                text: action.payload.text,
+                completed:false
+            }
+            return {
+               
+                todosList: [newTodo, ...state.todosList]
+            }
         default:
             return state
     }
