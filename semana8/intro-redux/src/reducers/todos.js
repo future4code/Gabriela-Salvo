@@ -9,7 +9,7 @@ const initialState = { //passamos esse para o combineReducers
         }, 
         {
             text: "Task 1",
-            id: 1,
+            id: 2,
             completed: false
         }
     ] 

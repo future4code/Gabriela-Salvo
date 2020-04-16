@@ -17,7 +17,7 @@ export const addTask = (text) => { //função de criar tarefa e retorna o objeto
 
 
 
-const toggleTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+export const toggleTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
   //irá mudar na ação, nesse caso cada tarefa que é um texto
 
   return {
