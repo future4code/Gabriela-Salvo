@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
-
+import {toggleTask} from "../actions/todos"
 
 
 
@@ -12,10 +12,10 @@ class TaskList extends React.Component {
             .filter(task => {
               const filter = this.props.filter;
               if (filter === "pendentes") {
-                return task.complete === false;
+                return task.completed === false;
               }
               if (filter === "completas") {
-                return task.complete === true;
+                return task.completed === true;
               }
               return true;
             })
@@ -39,7 +39,7 @@ const MapStateToProps = (state) => { // recebe o state GLobal do redux
     // retorna um objeto que sera injetado como props dentro do componente 
     
     return {
-        tasklist: state.todos.todosList
+        taskList: state.todos.todosList
 
 
     }

@@ -17,7 +17,7 @@ export const addTask = (text) => { //função de criar tarefa e retorna o objeto
 
 
 
-const toggleTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+export const toggleTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
   //irá mudar na ação, nesse caso cada tarefa que é um texto
 
   return {
@@ -30,7 +30,7 @@ const toggleTask = (id) => { //função de criar tarefa e retorna o objeto, rece
 //
 
 
-const deleteTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+export const deleteTask = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
   //irá mudar na ação, nesse caso cada tarefa que é um texto
 
   return {
@@ -42,7 +42,7 @@ const deleteTask = (id) => { //função de criar tarefa e retorna o objeto, rece
 }
 
 
-const completeAllTask = () => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+export const completeAllTask = () => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
   //irá mudar na ação, nesse caso cada tarefa que é um texto
 
   return {
@@ -54,7 +54,7 @@ const completeAllTask = () => { //função de criar tarefa e retorna o objeto, r
 
 
 
-  const deleteAllComplete = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+ const deleteAllComplete = (id) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
     //irá mudar na ação, nesse caso cada tarefa que é um texto
 
     return {
@@ -66,7 +66,7 @@ const completeAllTask = () => { //função de criar tarefa e retorna o objeto, r
 
 
 
-    const setFilter = (filter) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
+const setFilter = (filter) => { //função de criar tarefa e retorna o objeto, recebe no parâmetro o que
       //irá mudar na ação, nesse caso cada tarefa que é um texto
 
       return {

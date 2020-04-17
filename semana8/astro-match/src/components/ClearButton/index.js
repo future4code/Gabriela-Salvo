@@ -10,7 +10,7 @@ const ClearButton = styled.button`
 	right: 5px;
 `
 
-function ClearButtonWrapper(props) {
+function  ClearButtonWrapper(props) {
 	return <ClearButton onClick={props.clearSwipes}>Limpar swipes e matches</ClearButton>
 }
 
