@@ -4,6 +4,7 @@ import { push } from "connected-react-router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+// import App , {history } from './App'
 
 const LoginWrapper = styled.form`
   width: 100%;
