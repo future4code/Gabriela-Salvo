@@ -1,22 +1,28 @@
 import React from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
-import home from "../homePage"
+
+
+
+import Home from "../Home"
 import LoginPage from "../LoginPage";
-import listTripPage from "../listTripPage"
-import createTripPage from "../createTripPage "
-import applicationForm from "../applicationForm"
-import tripDetails from "../tripDetails"
+import ListTripPage from "../ListTripPage"
+import CreateTripPage from "../CreateTripPage"
+import ApplicationForm from "../ApplicationForm"
+import TripDetails from "../TripDetails"
+import { connect } from "react-redux";
 
 
 
 const routes = {
   root: "/",
-  home:"/home",
-  applicationForm:"/form",
-  createTrip:"/create",
-  listTrip:"/list",
-  tripDetails:"/details"
+  // home:"/home",
+  applicationForm:"/applicationForm",
+  createTrip:"/createTrip",
+  listTrip:"/listTrip",
+  tripDetails:"/tripDetails",
+  login:"/login"
+
   // Outras rotas aqui
 };
 
@@ -24,16 +30,16 @@ function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
-      <Route patch={routes.home}  component ={home} />
-        <Route path={routes.root} component={LoginPage} />
-        <Route patch={routes.applicationForm}  component ={applicationForm} />
-        <Route patch={routes.createTrip}  component ={createTripPage} />
-        <Route patch={routes.listTrip}  component ={listTripPage} />
-        <Route patch={routes.tripDetails}  component ={tripDetails} />
+      <Route exact path={routes.root}  component ={Home} />
+        <Route exact path={routes.login} component={LoginPage} />
+        <Route exact path={routes.applicationForm}  component ={ApplicationForm} />
+        <Route exact path={routes.createTrip}  component ={CreateTripPage} />
+        <Route exact path={routes.listTrip}  component ={ListTripPage} />
+        <Route exact path={routes.tripDetails}  component ={TripDetails} />
       </Switch>
       
     </ConnectedRouter>
   );
 }
 
-export default Router;
+export default connect() (Router);
