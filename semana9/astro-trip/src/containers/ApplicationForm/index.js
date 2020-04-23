@@ -46,7 +46,7 @@ class ApplicationForm extends Component {
     constructor(props) {
       super(props);
       this.state = {
-       form: {}
+       form: {country:""}
       };
     }
 
@@ -66,6 +66,11 @@ class ApplicationForm extends Component {
        form:{...this.state.form, [name]: value}
      })
    }
+    selectCountry(val) {
+      this.setState({
+        form: {...this.state.form, country:val}
+      })
+    }
 
     render(){
       return( 
@@ -113,10 +118,12 @@ class ApplicationForm extends Component {
           onChange={this.hadleInputChange}
           
           ></input>
-
-          {/* <label>País</label>  PRECISO FAZER, nao consegui
-          usar a biblioteca CountryDropDown*/}
-          
+          <label>País</label>
+          <CountryDropdown>
+            required
+            onChange={this.hadleInputChange}
+            value={(val)=>this.selectCountry}
+          </CountryDropdown>
           
           <button type="submit">Enviar dados</button>
 
