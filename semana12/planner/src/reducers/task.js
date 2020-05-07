@@ -1,9 +1,9 @@
-import { action }  from "../actions"
+
 const initialState = []
 
 
 
-export const tasks = (state = initialState. action)=> {
+export const tasks = (state = initialState, action)=> {
     switch(action.type) {
         case "SET_TASKS":
 

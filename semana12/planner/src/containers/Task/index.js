@@ -7,8 +7,40 @@ import * as taskActions from "../../actions/tasks"
 
 
 class Task extends Component{
-    render () {
+ 
+        state = {
+            inputTasks:"",
+            inputDay:""
+        }
 
+        componentDidMount() {
+            this.props.getTasks()
+
+        }
+
+        onchangeTask=(event)=>{
+            this.setState({inputTasks:event.target.value})
+            // console.log(this.state.inputTasks)
+         
+        }
+
+        onChangeDay = (event)=> {
+            this.setState({inputDay:event.target.value})
+
+
+        }
+
+        handleSubmit =(event)=> {
+            event.preventDefault()
+            this.props.createTask(this.state.inputTasks,this.state.inputDay)
+            this.setState({inputTasks:""})
+
+
+        }
+
+    render () {
+       
+   
         const daysWeek = [
             "segunda",
             "terça",
@@ -18,38 +50,70 @@ class Task extends Component{
             "sábado",
             "domingo"
         ]
-
-        
         
         return (
             <div>
             <h1>Dias da Semana</h1>
                 <form>
                     <input
-                    name="inputTask"
+                    onSubmit={this.handleSubmit}
+                    onChange={this.onchangeTask}
                     type="text"
                     required
-                    //fazer onchange
                     title="digite sua tarefa"
-                    value={this.inputTaskValue}  
+                    
                     />    
 
                     <select
+                    onChange={this.onChangeDay}
+                    value={this.state.inputDay}
                   
-                   
                     >
-                        {daysWeek.map((days)=>{
+                        {daysWeek.map((day)=>{
                             return (
-                                <option key={days}
-                                value={days}
-                                />
+                                <option key={day}
+                                value={day}
+                                >
+                                    {day}
                                 
+                                </option>
                             )
                         })}
                          
-                        
-                    </select>            
+                    </select>   
+
+                    <button
+                    type="submit"
+                    >Criar Task</button>
+
                 </form>
+               < div>
+                    {daysWeek.map((day)=>{
+                        return (
+                     <ul>
+                         {day}
+                         {this.props.task.map((task)=>{
+                           
+                                 if(day === task.day) {
+                                     return (
+                                     <li>{task.text}</li>
+                                     )
+
+                                 }
+                             
+                         })}
+
+
+
+                     </ul>
+                        )})}
+                        
+                    
+                    
+                            
+
+                        
+                </div>
 
             </div>
         )
