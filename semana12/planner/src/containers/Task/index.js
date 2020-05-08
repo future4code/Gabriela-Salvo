@@ -7,6 +7,7 @@ import * as taskActions from "../../actions/tasks"
 
 
 class Task extends Component{
+  
  
         state = {
             inputTasks:"",
@@ -34,13 +35,15 @@ class Task extends Component{
             event.preventDefault()
             this.props.createTask(this.state.inputTasks,this.state.inputDay)
             this.setState({inputTasks:""})
+            
 
 
         }
+        
 
     render () {
-       
-   
+        
+        
         const daysWeek = [
             "segunda",
             "terça",
@@ -75,7 +78,7 @@ class Task extends Component{
                                 value={day}
                                 >
                                     {day}
-                                
+         
                                 </option>
                             )
                         })}
@@ -88,30 +91,23 @@ class Task extends Component{
 
                 </form>
                < div>
-                    {daysWeek.map((day)=>{
+                    {daysWeek.map((dayWeek)=>{
                         return (
-                     <ul>
-                         {day}
-                         {this.props.task.map((task)=>{
-                           
-                                 if(day === task.day) {
-                                     return (
-                                     <li>{task.text}</li>
-                                     )
+                            <div>
+                                  <span key={dayWeek}>{dayWeek}  </span>
+                                  {this.props.tasks.map((task)=> {
+                                        
+                                        return (
+                                            <p>{task.text}</p>
+                                        )
+                                  }
 
-                                 }
-                             
-                         })}
-
-
-
-                     </ul>
-                        )})}
-                        
-                    
-                    
+                                  )}
+                            </div>
+                          
                             
-
+                        )
+                    })}
                         
                 </div>
 
@@ -123,8 +119,8 @@ class Task extends Component{
     bindActionCreators(taskActions, dispatch)
 
     const mapStateToProps = state => ({
-        tasks: state.task
+        tasks: state.tasks
     })
     
 
-export default connect(mapStateToProps, mapDispatchToProps) (Task)
+export default connect(mapStateToProps, mapDispatchToProps)(Task)

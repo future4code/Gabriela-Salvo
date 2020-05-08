@@ -9,13 +9,13 @@ export const setTasks = tasks => {
     };
   };
 
-  const baseURL = "https://us-central1-missao-newton.cloudfunctions.net/generic/:planner-gabriela"
+  const baseURL = "https://us-central1-missao-newton.cloudfunctions.net/generic/planner-gabriela"
 
   
   export const getTasks =()=> async (dispatch, getState) => {
       try {
 
-        const response = await  axios.get(`${baseURL}`
+        const response = await axios.get(`${baseURL}`
         
         )
         dispatch(setTasks(response.data))
