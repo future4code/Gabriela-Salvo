@@ -36,7 +36,7 @@ export const setTasks = tasks => {
             
             )
             dispatch(getTasks())
-            console.log(text)
+            // console.log(text)
 
             }catch {
                 console.error("Ocorreu um erro inesperado. Tente novamente.")

@@ -6,6 +6,7 @@ import theme from "../../style/theme";
 import { createStore, applyMiddleware, compose } from "redux";
 import { rootReducer } from "../../reducers";
 import Planner from "../Planner";
+// import Task from "../Task"
 
 const middlewares = [
   applyMiddleware(thunk),
