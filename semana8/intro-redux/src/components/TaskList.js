@@ -1,11 +1,12 @@
 import React from 'react'
 import {connect} from "react-redux"
-import {toggleTask} from "../actions/todos"
+import { toggleTask} from '../actions/todos'
 
 
 
 class TaskList extends React.Component {
     render() {
+        console.log(this.props.taskList)
       return (
         <ul>
           {this.props.taskList
@@ -21,7 +22,7 @@ class TaskList extends React.Component {
             })
             .map(task => (
               <li key={task.id} onClick={() => this.props.toggleTask(task.id)}>
-                {task.text} - Completa: {String(task.complete)}
+                {task.text} - Completa: {String(task.completed)}
                 <button onClick={() => this.props.deleteTask(task.id)}>
                   Deletar
                 </button>
