@@ -29,7 +29,21 @@ export const todos = (state = initialState, action)=> {
             return {
                
                 todosList: [newTodo, ...state.todosList]
-            }
+            };
+
+            case "TOGGLE_TASK":
+                const newTodosList = state.todosList.map(todo => {
+                    if(todo.id === action.payload.id){
+                        return {
+                            ...todo,
+                            complete: !todo.complete
+                          };
+                        }
+                        return todo;
+                })
+                return {
+                    todosList: newTodosList
+                }
         default:
             return state
     }
