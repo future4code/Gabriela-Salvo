@@ -5,12 +5,26 @@ function qualEra(ano:number, era:string):string {
         return "Pré história"
 
     }else if(ano < 4000 && era === "AC"){
-        return "Idade Antiga"
+        return "Idade Antiga" }
+
+    else if(ano < 476 && era === "DC"){
+            return "Idade Antiga"
 
     }else if(ano > 476 && era  === "AC"){
         return "Idade média"
     }else if (ano < 476  && era ==="AC")
+    return ""
 }
+
+console.log(qualEra(1, "AC"))
+
+
+
+
+
+
+
+
 
 // console.log(qualEra(5000, "AC"))
 
