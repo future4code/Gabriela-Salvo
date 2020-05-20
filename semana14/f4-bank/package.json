@@ -1,0 +1,14 @@
+{
+  "name": "f4-bank",
+  "version": "1.0.0",
+  "description": "projeto-typescript",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gabriela-salvo",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  }
+}
