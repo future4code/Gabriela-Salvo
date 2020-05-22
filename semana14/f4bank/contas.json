@@ -1,6 +1,1 @@
-[
-  { "name": "Gabriela", "anoNascimento": 1991, "cpf": 99999999999 },
-  { "name": "Gabriela", "anoNascimento": 1991, "cpf": 99999999999 },
-  { "name": "Gabriela", "anoNascimento": 1991, "cpf": 999955599999 },
-  { "name": "Gabriela", "anoNascimento": 1991, "cpf": 12312312323 }
-]
+[{"name":"Gabriela","anoNascimento":1991,"cpf":99999999999},{"name":"Gabriela","anoNascimento":1991,"cpf":99999999999},{"name":"Gabriela","anoNascimento":1991,"cpf":999955599999},{"name":"Gabriela","anoNascimento":1991,"cpf":12312312323},{"name":"2","anoNascimento":1991,"cpf":111111111,"extrato":null},{"name":"getAllAccounts","anoNascimento":null,"cpf":null,"extrato":null},{"name":"undefined","anoNascimento":null,"cpf":null,"extrato":null},{"name":"undefined","anoNascimento":null,"cpf":null,"extrato":null}]

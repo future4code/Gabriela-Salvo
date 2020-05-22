@@ -19,14 +19,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.contas = exports.contaDoUsuario = void 0;
 const fs = __importStar(require("fs"));
 const anoHoje = new Date().getFullYear();
 const contaDoUsuario = {
     name: String(process.argv[2]),
     anoNascimento: Number(process.argv[3]),
-    cpf: Number(process.argv[4])
+    cpf: Number(process.argv[4]),
+    extrato: Number(process.argv[5])
 };
+exports.contaDoUsuario = contaDoUsuario;
 const accounts = require("../contas.json");
+exports.contas = "contas.json";
 function criarConta(contaDoUsuario) {
     let ano = anoHoje - contaDoUsuario.anoNascimento;
     if (ano < 18) {
@@ -40,6 +44,7 @@ function criarConta(contaDoUsuario) {
             try {
                 accounts.push(contaDoUsuario);
                 fs.writeFileSync("contas.json", JSON.stringify(accounts));
+                console.log("Conta criada com sucesso!");
             }
             catch (error) {
                 console.error(error);
