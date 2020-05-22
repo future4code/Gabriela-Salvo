@@ -26,36 +26,29 @@ const contaDoUsuario = {
     anoNascimento: Number(process.argv[3]),
     cpf: Number(process.argv[4])
 };
-const perfilUsuario = "\n" + JSON.stringify(contaDoUsuario);
-const fileName = "conta.json";
+const accounts = require("../contas.json");
 function criarConta(contaDoUsuario) {
     let ano = anoHoje - contaDoUsuario.anoNascimento;
     if (ano < 18) {
         console.log("Você não pode criar uma conta.");
     }
     else {
-        try {
-            const data = fs.readFileSync(fileName);
-            const treatedData = data.toString();
-            const cpfUsuario = JSON.parse(treatedData);
-            cpfUsuario.find((cpfIgual) => {
-                if (cpfIgual.cpf === contaDoUsuario.cpf) {
-                    try {
-                        fs.appendFileSync(fileName, perfilUsuario, 'utf-8');
-                        console.log("Conta criada com sucesso");
-                    }
-                    catch (error) {
-                        console.error(error);
-                    }
-                }
-                else {
-                    console.log("CPF já cadastrado");
-                }
-            });
+        const resultadoBusca = accounts.find((account) => {
+            return account.cpf === contaDoUsuario.cpf;
+        });
+        if (resultadoBusca === undefined) {
+            try {
+                accounts.push(contaDoUsuario);
+                fs.writeFileSync("contas.json", JSON.stringify(accounts));
+            }
+            catch (error) {
+                console.error(error);
+            }
         }
-        catch (error) {
-            console.error(error);
+        else {
+            console.log("Usuário já cadastrado!");
         }
+        console.log(resultadoBusca);
     }
 }
-console.log(criarConta(contaDoUsuario));
+criarConta(contaDoUsuario);

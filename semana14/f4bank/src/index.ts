@@ -15,48 +15,38 @@ const contaDoUsuario: usuario = {
 
 }
 
-const perfilUsuario: string = "\n" + JSON.stringify(contaDoUsuario)
-const fileName: string = "conta.txt"
+
+const accounts: usuario[] = require("../contas.json")
 
 
 function criarConta(contaDoUsuario: usuario): any {
+
 
     let ano = anoHoje - contaDoUsuario.anoNascimento
     if (ano < 18) {
         console.log("Você não pode criar uma conta.")
     } else {
-        
-        try {
-            const data: Buffer = fs.readFileSync(fileName)
-            const treatedData: string = data.toString()
-           
-           const cpfUsuario = JSON.parse(treatedData)
-           cpfUsuario.find((cpfIgual:any)=>{
-               
-               if(cpfIgual.cpf === contaDoUsuario.cpf) {
-                try {
 
-                    fs.appendFileSync(fileName, perfilUsuario, 'utf-8');
-                    console.log("Conta criada com sucesso")
-                } catch (error) {
-                    console.error(error)
-                }
-                   
-                   
-               }else{
-                   console.log("CPF já cadastrado")
-               }
-           })
-            
+        const resultadoBusca = accounts.find((account) => {
+            return account.cpf === contaDoUsuario.cpf
+        })
+        if (resultadoBusca === undefined) {
+            try {
+                accounts.push(contaDoUsuario)
 
-        } catch(error){
-            console.error(error)
+                fs.writeFileSync("contas.json", JSON.stringify(accounts))
+                console.log("Conta criada com sucesso!")
 
+            } catch (error) {
+                console.error(error)
+
+            }
+
+        } else {
+            console.log("Usuário já cadastrado!")
         }
-
-     
+        console.log(resultadoBusca)
 
     }
 }
-console.log(criarConta(contaDoUsuario))
-
+criarConta(contaDoUsuario)
