@@ -1,0 +1,17 @@
+{
+  "name": "aula-promisses",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js"
+  },
+  "author": "Gabriela Salvo",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^13.7.7",
+    "axios": "^0.19.2",
+    "typescript": "^3.9.3"
+  }
+}
