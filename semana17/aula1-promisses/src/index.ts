@@ -45,3 +45,20 @@ type User = {
 }
 
 
+const getSubscribers = async (): Promise<User[]> => {
+    const users = await axios.get (`${baseUrl}/subscribers/all`)
+    return users.data.map((response:any)=>{
+        return {
+            id:response.id,
+            name:response.name,
+            email:response.email
+        }
+    })
+
+}
+
+const main = async () => {
+    const returnAllSubscribes = await getSubscribers()
+    console.log(returnAllSubscribes)
+}
+main()

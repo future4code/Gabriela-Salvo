@@ -11,13 +11,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labenews";
+const getSubscribers = () => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield axios_1.default.get(`${baseUrl}/subscribers/all`);
+    return users.data.map((response) => {
+        return {
+            id: response.id,
+            name: response.name,
+            email: response.email
+        };
+    });
+});
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const returnAllSubscribes = yield getSubscribers();
     console.log(returnAllSubscribes);
-});
-const getSubscribers = () => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield axios_1.default.get(`${baseUrl}/subscribers/all`);
-    return users.data;
 });
 main();
 //# sourceMappingURL=index.js.map
