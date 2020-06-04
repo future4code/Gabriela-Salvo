@@ -1,7 +1,9 @@
 import { User } from "./User"
+import *as moment from 'moment'
+moment.locale("pt-br")
 
-enum TEACHER_SPECIALITY {
-    REACT = "REACT",
+export enum TEACHER_SPECIALITY {
+    REACT = 2,
     REDUX = "REDUX",
     CSS = "CSS",
     TESTES = "TESTES",
@@ -13,10 +15,20 @@ enum TEACHER_SPECIALITY {
 }
 
 export class Teacher implements User {
-    id: number
-    name: string
-    email: string
-    birthDay: string
-    specialities: TEACHER_SPECIALITY[]
 
+    constructor(
+        public id: number,
+        public name: string,
+        public email: string,
+        public birthDay: moment.Moment,
+        public specialities: TEACHER_SPECIALITY[]
+        
+    ) {
+        this.id
+        this.name
+        this.email
+        this.birthDay
+        this.specialities
+        
+    }
 }

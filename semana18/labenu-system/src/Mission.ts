@@ -1,6 +1,7 @@
 import { Student } from "./Student"
 import { Teacher } from "./Teacher"
 import * as moment from 'moment'
+moment.locale("pt-br")
 
 export abstract class Mission {
 

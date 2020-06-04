@@ -1,5 +1,6 @@
 import { User } from "./User"
 import * as moment from 'moment'
+moment.locale("pt-br")
 
 export class Student implements User {
     public hobbies: string[]
@@ -8,7 +9,7 @@ export class Student implements User {
         public id: number,
         public name: string,
         public email: string,
-        public birthDay:string,
+        public birthDay:moment.Moment,
         hobbies: string[],
     ) {
         this.id = id

@@ -2,6 +2,7 @@ import { Mission } from "./Mission";
 import * as moment from "moment";
 import { Teacher } from "./Teacher";
 import { Student } from "./Student";
+moment.locale("pt-br")
 
 export class FullTimeMisson extends Mission {
   constructor(

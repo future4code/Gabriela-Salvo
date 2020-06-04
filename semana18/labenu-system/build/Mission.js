@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Mission = void 0;
+const moment = require("moment");
+moment.locale("pt-br");
 class Mission {
     constructor(classId, startDate, endDate, teachers = [], students = []) {
         this.classId = classId;
