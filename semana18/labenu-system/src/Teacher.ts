@@ -16,7 +16,7 @@ export class Teacher implements User {
     id: number
     name: string
     email: string
-    birthDay: moment.Moment
+    birthDay: string
     specialities: TEACHER_SPECIALITY[]
 
 }

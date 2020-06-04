@@ -4,6 +4,6 @@ export interface User{
     id: number
     name: string
     email: string
-    birthDay: moment.Moment
+    birthDay: string
 
 }

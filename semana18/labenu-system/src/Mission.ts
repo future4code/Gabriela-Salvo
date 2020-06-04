@@ -11,7 +11,7 @@ export abstract class Mission {
         private endDate: moment.Moment,
         private teachers: Teacher[] = [],
         private students: Student[] = [],
-        private module?: number = undefined,
+        // private module?: number = undefined,
 
 
     ) { } //aqui eu inicio o contructor, porme nao eh obrigatório
@@ -34,9 +34,9 @@ export abstract class Mission {
     public setName(name: string) {
         this.name = name;
     }
-    public getCurrentModule(): number | undefined {
-        return this.module;
-    }
+    // public getCurrentModule(): number | undefined {
+    //     return this.module;
+    // }
 
 
 
