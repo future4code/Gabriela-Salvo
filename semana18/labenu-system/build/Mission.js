@@ -1,15 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Mission = void 0;
-const moment = require("moment");
-moment.locale("pt-br");
 class Mission {
-    constructor(classId, startDate, endDate, teachers = [], students = []) {
+    constructor(classId, startDate, endDate, teachers = [], students = [], module = undefined) {
         this.classId = classId;
         this.startDate = startDate;
         this.endDate = endDate;
         this.teachers = teachers;
         this.students = students;
+        this.module = module;
         this.name = "";
     }
     getStartDate() {
@@ -29,6 +28,14 @@ class Mission {
     }
     setName(name) {
         this.name = name;
+    }
+    getCurrentModule() {
+        if (this.module) {
+            return this.module;
+        }
+        else {
+            return undefined;
+        }
     }
 }
 exports.Mission = Mission;

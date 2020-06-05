@@ -1,9 +1,9 @@
 import { User } from "./User"
 import *as moment from 'moment'
-moment.locale("pt-br")
+
 
 export enum TEACHER_SPECIALITY {
-    REACT = 2,
+    REACT = "REACT",
     REDUX = "REDUX",
     CSS = "CSS",
     TESTES = "TESTES",

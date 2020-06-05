@@ -1,6 +1,6 @@
 import { User } from "./User"
 import * as moment from 'moment'
-moment.locale("pt-br")
+
 
 export class Student implements User {
     public hobbies: string[]

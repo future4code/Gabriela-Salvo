@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Teacher = exports.TEACHER_SPECIALITY = void 0;
-const moment = require("moment");
-moment.locale("pt-br");
 var TEACHER_SPECIALITY;
 (function (TEACHER_SPECIALITY) {
     TEACHER_SPECIALITY[TEACHER_SPECIALITY["REACT"] = 2] = "REACT";

@@ -1,18 +1,18 @@
 import { Student } from "./Student"
 import { Teacher } from "./Teacher"
 import * as moment from 'moment'
-moment.locale("pt-br")
+
 
 export abstract class Mission {
-
+    
     private name: string = ""
     constructor(
         private classId: string,
         private startDate: moment.Moment,
         private endDate: moment.Moment,
-        private teachers: Teacher[] = [],
+        private teachers: Teacher[] = [],// nao entendi tao bem o motivo do array vazio.
         private students: Student[] = [],
-        // private module?: number = undefined,
+        private module: number | undefined = undefined
 
 
     ) { } //aqui eu inicio o contructor, porme nao eh obrigatório
@@ -35,9 +35,13 @@ export abstract class Mission {
     public setName(name: string) {
         this.name = name;
     }
-    // public getCurrentModule(): number | undefined {
-    //     return this.module;
-    // }
+    public getCurrentModule(): number | undefined {
+        if(this.module) {
+          return this.module
+        } else {
+          return undefined
+        }     
+      }
 
 
 

@@ -2,11 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FullTimeMisson = void 0;
 const Mission_1 = require("./Mission");
-const moment = require("moment");
-moment.locale("pt-br");
 class FullTimeMisson extends Mission_1.Mission {
-    constructor(name, classId, startDate, endDate, teachers = [], students = []) {
-        super(classId, startDate, endDate, teachers, students);
+    constructor(name, classId, startDate, endDate, teachers = [], students = [], module = undefined) {
+        super(classId, startDate, endDate, teachers, students, module);
     }
 }
 exports.FullTimeMisson = FullTimeMisson;

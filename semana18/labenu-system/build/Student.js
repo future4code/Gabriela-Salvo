@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Student = void 0;
 const moment = require("moment");
-moment.locale("pt-br");
 class Student {
     constructor(id, name, email, birthDay, hobbies) {
         this.id = id;

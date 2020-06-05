@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-moment.locale("pt-br")
+
 
 export interface User{
     id: number
