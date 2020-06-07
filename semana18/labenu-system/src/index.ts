@@ -11,9 +11,10 @@ import { WriteFile } from './WriteFile'
 
 
 
-const newStudent: Student = new Student(1,"Erikinha", "erika@erika.com",moment("10/10/10", "10/10/10"),["Implicar comigo, comer brigadeiro, cantar a grande familia para Ivana"])
+const erikinhaStudent: Student = new Student(1,"Erikinha", "erika@erika.com",moment("10/10/10", "10/10/10"),["Implicar comigo, comer brigadeiro, cantar a grande familia para Ivana"])
 // console.log(newStudent)
-
+const ivanaStudent: Student = new Student(1,"Ivana", "ivana@ivana.com",moment("10/10/10", "10/10/10"),["Cuidar da Nina, ser sinistra no JAVA, dormir de madrugada"])
+// console.log(newStudent)
 const lukeSkywalker: Teacher = new Teacher(2, "Tio Luke Skywalker", "lukesky@forcestrong.com",moment("10/10/10","DD/MM/YY"), [TEACHER_SPECIALITY.BACKEND] )
 // console.log(lukeSkywalker)
 
@@ -28,14 +29,16 @@ const finn: Teacher = new Teacher(2187, "Finn FN-2187", "finn@forcestrong.com",m
 // console.log(finn)
 
 
-const  classSkywalker: FullTimeMisson = new FullTimeMisson("Pequenos Padawans do Backend","Pequenos Padawans do Backend",moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"), [lukeSkywalker],[newStudent], 1)
+const  classSkywalker: FullTimeMisson = new FullTimeMisson("Pequenos Padawans do Backend","Pequenos Padawans do Backend",moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"), [lukeSkywalker],[erikinhaStudent], 1)
 // console.log(classSkywalker)
 
 
-const classRavenclaw: FullTimeMisson = new FullTimeMisson("Turma Corvinal", "Hogwarts", moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"),[lukeSkywalker], [newStudent],3)
+const classRavenclaw: FullTimeMisson = new FullTimeMisson("Turma Corvinal", "Hogwarts", moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"),[lukeSkywalker], [ivanaStudent],3)
 // console.log(classRavenclaw)
 
 const novoJSON:WriteFile = new  WriteFile('students.json')
-novoJSON.writeJSON(newStudent)
+novoJSON.writeJSON(erikinhaStudent)
+novoJSON.writeJSON(ivanaStudent)
 
+classRavenclaw.addStudent(ivanaStudent)
 
