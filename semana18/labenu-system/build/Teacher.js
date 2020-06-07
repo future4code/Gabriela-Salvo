@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Teacher = exports.TEACHER_SPECIALITY = void 0;
 var TEACHER_SPECIALITY;
 (function (TEACHER_SPECIALITY) {
-    TEACHER_SPECIALITY[TEACHER_SPECIALITY["REACT"] = 2] = "REACT";
+    TEACHER_SPECIALITY["REACT"] = "REACT";
     TEACHER_SPECIALITY["REDUX"] = "REDUX";
     TEACHER_SPECIALITY["CSS"] = "CSS";
     TEACHER_SPECIALITY["TESTES"] = "TESTES";

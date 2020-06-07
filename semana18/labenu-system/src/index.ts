@@ -5,6 +5,7 @@ import { FullTimeMisson } from "./FullTimeMission"
 import { Teacher } from "./Teacher"
 import { TEACHER_SPECIALITY  } from './Teacher'
 import *as moment from 'moment'
+import { WriteFile } from './WriteFile'
 
 
 
@@ -14,17 +15,17 @@ const newStudent: Student = new Student(1,"Erikinha", "erika@erika.com",moment("
 // console.log(newStudent)
 
 const lukeSkywalker: Teacher = new Teacher(2, "Tio Luke Skywalker", "lukesky@forcestrong.com",moment("10/10/10","DD/MM/YY"), [TEACHER_SPECIALITY.BACKEND] )
-console.log(lukeSkywalker)
+// console.log(lukeSkywalker)
 
 const leiaOrgana: Teacher = new Teacher(1, "Gerenal Organa", "organa@forcestrong.com",moment("10/10/10", "DD/MM/YY"), [TEACHER_SPECIALITY.REACT, TEACHER_SPECIALITY.REDUX] )
-console.log(leiaOrgana)
+// console.log(leiaOrgana)
 
 
 const reySkywalker: Teacher = new Teacher(3, "Rey Palpatine Skywalker", "rey@forcestrong.com",moment("10/10/10","DD/MM/YY"), [TEACHER_SPECIALITY.REACT, TEACHER_SPECIALITY.TYPESCRIPT] )
-console.log(reySkywalker)
+// console.log(reySkywalker)
 
 const finn: Teacher = new Teacher(2187, "Finn FN-2187", "finn@forcestrong.com",moment("10/10/10","DD/MM/YY"), [TEACHER_SPECIALITY.REACT, TEACHER_SPECIALITY.CSS,TEACHER_SPECIALITY.POO ] )
-console.log(finn)
+// console.log(finn)
 
 
 const  classSkywalker: FullTimeMisson = new FullTimeMisson("Pequenos Padawans do Backend","Pequenos Padawans do Backend",moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"), [lukeSkywalker],[newStudent], 1)
@@ -34,5 +35,7 @@ const  classSkywalker: FullTimeMisson = new FullTimeMisson("Pequenos Padawans do
 const classRavenclaw: FullTimeMisson = new FullTimeMisson("Turma Corvinal", "Hogwarts", moment("10/10/10","DD/MM/YY"),moment("10/10/10","DD/MM/YY"),[lukeSkywalker], [newStudent],3)
 // console.log(classRavenclaw)
 
+const novoJSON:WriteFile = new  WriteFile('students.json')
+novoJSON.writeJSON(newStudent)
 
 
