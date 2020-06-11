@@ -27,12 +27,17 @@ const connection = knex_1.default({
     },
 });
 const app = express_1.default();
-app.use(express_1.default.json());
-const salaryByGender = (gender) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield connection
-        .avg("salary as average").into("Actor")
-        .where({ gender });
-    console.log(result);
+const getActorById = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield connection.select("*").from("Actor");
+    return result;
 });
-salaryByGender("female");
+app.get("/actor", (re, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield getActorById();
+        console.log("RESULTADO", result);
+    }
+    catch (err) {
+        res.status(400).send({ error: err.message });
+    }
+}));
 //# sourceMappingURL=index.js.map

@@ -55,12 +55,41 @@ const app = express();
 
 
 
-app.use(express.json());
+// app.use(express.json());
+// const getActorById = async (id: string): Promise<any> => {
+//     const result = await connection.raw(`
+//       SELECT * FROM Actor WHERE id = '${id}'
+//     `)
 
+//       return result[0][0]
+//   }
 
+// app.get("/actor/:id", async (req: Request, res: Response) => {
+//     try {
+//       const id = req.params.id;
+//       const actor = await getActorById(id);
 
+//       res.status(200).send(actor)
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
+// const getActor = async (): Promise<any> => {
+//     const result = await connection.select("*").from("Actor")
 
+//     return result
+// }
 
+// app.get("/actor", async (re: Request, res: Response) => {
+//     try {
+//         const result = await getActor()
+//         res.status(200).send(result)
+//     } catch (err) {
+//         res.status(400).send({ error: err.message })
+//     }
+// })
 
                 // DAQUI PRA BAIXO SO EXERCICIOS QUE FIZ PARA FIXAR ALGUNS CONCEITOS
 
