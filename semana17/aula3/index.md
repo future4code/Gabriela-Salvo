@@ -1,3 +1,15 @@
+### Exercicio 1
+
+```
+a)recebemos uma resposta direta do nosso banco
+```
+
+```
+b)
+```
+
+
+
 ### EXERCICIO 3
 
 ```
