@@ -28,20 +28,11 @@ const connection = knex_1.default({
 });
 const app = express_1.default();
 app.use(express_1.default.json());
-const getActorById = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield connection.raw(`
-    SELECT * FROM Actor WHERE id = '${id}'
-    `);
-    return console.log(result[0][0]);
+const salaryByGender = (gender) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield connection
+        .avg("salary as average").into("Actor")
+        .where({ gender });
+    console.log(result);
 });
-const server = app.listen(process.env.PORT || 3000, () => {
-    if (server) {
-        const address = server.address();
-        console.log(`Server is running in http://localhost:${address.port}`);
-    }
-    else {
-        console.error(`Failure upon starting server.`);
-    }
-});
-getActorById('002');
+salaryByGender("female");
 //# sourceMappingURL=index.js.map
