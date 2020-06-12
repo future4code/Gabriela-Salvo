@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import express from "express";
 import { AddressInfo } from "net";
 import { Request, Response } from "express"
-import { promises } from "fs";
 
-//******************************************************************************************/
+
+//*******************************CONFIGURAÇÃO DA CONEXÃO*************************************************/
 
 
 dotenv.config();
@@ -21,7 +21,7 @@ const connection = knex({
 });
 
 
-/******************************************************************************************/
+/************************************CRIANDO TABELA USANDO RAW****************************************/
 
 
 
@@ -42,36 +42,77 @@ const createTableUser = async (): Promise<void> => {
 // createTableUser()
 
 
-/**************************************************************************/
+/***********************************CRIANDO USARIO USANDO QUERIE BUILDER -- TESTE --********************/
+
+
+// const createUser = async (id: string, name: string, nickname: string, email: string): Promise<any> => {
+//     try {
+//         const result = await connection.insert({
+//             id,
+//             name,
+//             nickname,
+//             email
+//         }).into("user")
+
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
 
 const createUser = async (id: string, name: string, nickname: string, email: string): Promise<any> => {
     try {
-        const result = await connection.insert({
-            id,
-            name,
-            nickname,
-            email
-        }).into("user")
-        
-    } catch (error) {
-        console.error(error)
+        const result = await connection.raw(
+            `
+                INSERT INTO user
+                VALUES (
+                    "${id}","${name}","${nickname}","${email}"
+                )
+                `
+
+        )
+    } catch (err) {
+        console.error(err)
     }
 }
-createUser("a","Jill Valentine","Jill","jill@racoon")
+// createUser("c", "Bob Esponja", "Calça Quadrada", "bob@fendadobikini.com")
 
 
 /******************************************************************************************/
 
-// const app = express()
-// app.use(express.json())
 
-// const server = app.listen(process.env.PORT || 3000, () => {
-//     if (server) {
-//         const address = server.address() as AddressInfo;
-//         console.log(`Server is running in http://localhost:${address.port}`);
-//     } else {
-//         console.error(`Failure upon starting server.`);
-//     }
-// });
+
+
+const app = express()
+app.use(express.json())
+
+
+const createEndPointUser = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const newUser = {
+            id: req.body.id,
+            name: req.body.name,
+            nickname: req.body.nickname,
+            email: req.body.email
+        }
+
+        await createUser(newUser.id, newUser.name, newUser.nickname, newUser.email)
+
+        res.status(200).send({ message: "Funcionando!!" })
+    } catch (error) {
+        res.status(400).send({error:error.message})
+    }
+}
+app.post("/user", createEndPointUser)
+
+
+
+const server = app.listen(process.env.PORT || 3000, () => {
+    if (server) {
+        const address = server.address() as AddressInfo;
+        console.log(`Server is running in http://localhost:${address.port}`);
+    } else {
+        console.error(`Failure upon starting server.`);
+    }
+});
 
 /******************************************************************************************/
