@@ -72,18 +72,45 @@ const createUser = async (id: string, name: string, nickname: string, email: str
 /****************************************FUNCAO PARA BUSCAR ID***************************************/
 
 
-const getUserById = async (id:string):Promise <any>=> {
+const getUserById = async (id: string): Promise<any> => {
     try {
 
-        const  result = await connection.select("*").from ("user").where({id:id})
+        const result = await connection.select("*").from("user").where({ id: id })
         return result
 
-    }catch(err) {
+    } catch (err) {
         console.log(err)
     }
 }
 
 // getUserById("a")
+
+
+
+/****************************************FUNCAO EDITAR USER*********************************************/
+
+
+
+
+const changeDataUser = async (id: string, name: string, nickname: string): Promise<any> => {
+    try {
+        const result = await connection.raw(
+            `
+                UPDATE user
+                SET name ="${name}", nickname = "${nickname}"
+                WHERE id ="${id}"
+                
+                `
+        )
+        return result
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+// changeDataUser("c", "Eugene", "Sirigueijo")
+
+
 
 
 
@@ -99,7 +126,7 @@ app.use(express.json())
 
 
 
-  /*********************************ENDPOINT CRIAR USUARIO**********************************************/
+/*********************************ENDPOINT CRIAR USUARIO**********************************************/
 
 
 
@@ -127,10 +154,14 @@ app.post("/user", createEndPointUser)
 
 /************************************ENDPOINT GET BUSCAR USER POR ID*************************************/
 
+
+
+
+
 const createEndPointId = async (req: Request, res: Response): Promise<void> => {
     try {
-       const id = req.params.id;
-       const result = await getUserById(id)
+        const id = req.params.id;
+        const result = await getUserById(id)
 
         res.status(200).send(result[0])
     } catch (error) {
@@ -139,7 +170,32 @@ const createEndPointId = async (req: Request, res: Response): Promise<void> => {
 }
 app.get("/user/:id", createEndPointId)
 
+
+/************************************ENDPOINT PUT PARA EDITAR USER*************************************/
+
+
+
+
+const createEndPointEditData = async (req: Request, res: Response): Promise<any> => {
+    try {
+
+        const id = req.params.id
+        const name = req.body.name
+        const nickname = req.body.nickname
+
+        await changeDataUser(id, name, nickname)
+        res.status(200).send({message:"Usuário alterado"})
+    } catch (err) {
+        res.status(400).send({err:err.message})
+    }
+}
+app.put("/user/edit/:id", createEndPointEditData)
+// changeDataUser
+
 /*******************************************CONFIGURANDO SERVER****************************************/
+
+
+
 
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {
@@ -150,8 +206,9 @@ const server = app.listen(process.env.PORT || 3000, () => {
     }
 });
 
-/******************************************************************************************/
 
+
+/********************************************************************************************************/
 
 
 

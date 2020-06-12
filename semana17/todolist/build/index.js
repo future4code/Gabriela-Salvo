@@ -59,6 +59,20 @@ const getUserById = (id) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(err);
     }
 });
+const changeDataUser = (id, name, nickname) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield connection.raw(`
+                UPDATE user
+                SET name ="${name}", nickname = "${nickname}"
+                WHERE id ="${id}"
+                
+                `);
+        return result;
+    }
+    catch (err) {
+        console.error(err);
+    }
+});
 const app = express_1.default();
 app.use(express_1.default.json());
 const createEndPointUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -88,6 +102,19 @@ const createEndPointId = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 app.get("/user/:id", createEndPointId);
+const createEndPointEditData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const name = req.body.name;
+        const nickname = req.body.nickname;
+        yield changeDataUser(id, name, nickname);
+        res.status(200).send({ message: "Usuário alterado" });
+    }
+    catch (err) {
+        res.status(400).send({ err: err.message });
+    }
+});
+app.put("/user/edit/:id", createEndPointEditData);
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {
         const address = server.address();
