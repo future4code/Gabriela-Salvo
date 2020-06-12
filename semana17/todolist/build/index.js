@@ -50,12 +50,21 @@ const createUser = (id, name, nickname, email) => __awaiter(void 0, void 0, void
         console.error(err);
     }
 });
+const getUserById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield connection.select("*").from("user").where({ id: id });
+        return result;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
 const app = express_1.default();
 app.use(express_1.default.json());
 const createEndPointUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const newUser = {
-            id: req.body.id,
+            id: Date.now().toString(),
             name: req.body.name,
             nickname: req.body.nickname,
             email: req.body.email
@@ -68,6 +77,17 @@ const createEndPointUser = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 app.post("/user", createEndPointUser);
+const createEndPointId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const result = yield getUserById(id);
+        res.status(200).send(result[0]);
+    }
+    catch (error) {
+        res.status(400).send({ error: error.message });
+    }
+});
+app.get("/user/:id", createEndPointId);
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {
         const address = server.address();
