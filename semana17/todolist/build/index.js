@@ -88,6 +88,15 @@ const getUserById = (id) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(err);
     }
 });
+const getTaskById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const result = yield connection.select("*").from("TodoTableTask").where({ id: id });
+        return result;
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
 const changeDataUser = (id, name, nickname) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield connection.raw(`
@@ -149,6 +158,17 @@ const createEndPointId = (req, res) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 app.get("/user/:id", createEndPointId);
+const createEndTaskById = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const result = yield getTaskById(id);
+        res.status(200).send(result);
+    }
+    catch (error) {
+        res.status(400).send({ error: error.message });
+    }
+});
+app.get("/task/:id", createEndTaskById);
 const createEndPointEditData = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
@@ -165,10 +185,10 @@ app.put("/user/edit/:id", createEndPointEditData);
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {
         const address = server.address();
-        console.log(`Server is running in http://localhost:${address.port}`);
+        console.log(`Servidor rodando :) http://localhost:${address.port}`);
     }
     else {
-        console.error(`Failure upon starting server.`);
+        console.error(`Falha em rodar o servidor. Tente novamente.`);
     }
 });
 //# sourceMappingURL=index.js.map

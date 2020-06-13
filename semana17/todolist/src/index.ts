@@ -166,7 +166,24 @@ const getUserById = async (id: string): Promise<any> => {
 
 
 
-/****************************************FUNCAO EDITAR USER*********************************************/
+
+/****************************************FUNCAO PEGAR TASK POR ID**********************************/
+
+
+
+
+const getTaskById = async (id: string): Promise<any> => {
+    try {
+
+        const result = await connection.select("*").from("TodoTableTask").where({ id: id })
+        return result
+
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+/****************************************FUNCAO EDITAR USER**********************************/
 
 
 
@@ -261,9 +278,6 @@ app.post("/task", createEndPoinTask)
 
 
 
-
-
-
 const createEndPointId = async (req: Request, res: Response): Promise<void> => {
 
 
@@ -278,6 +292,28 @@ const createEndPointId = async (req: Request, res: Response): Promise<void> => {
 }
 app.get("/user/:id", createEndPointId)
 
+
+
+
+/************************************ENDPOINT PEGAR TASK POR ID*************************************/
+
+
+
+
+
+const createEndTaskById= async (req: Request, res: Response): Promise<void> => {
+
+
+    try {
+        const id = req.params.id;
+        const result = await getTaskById(id)
+
+        res.status(200).send(result)
+    } catch (error) {
+        res.status(400).send({ error: error.message })
+    }
+}
+app.get("/task/:id", createEndTaskById)
 
 /************************************ENDPOINT PUT PARA EDITAR USER*************************************/
 
