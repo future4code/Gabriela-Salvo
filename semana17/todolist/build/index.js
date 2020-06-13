@@ -37,6 +37,36 @@ const createTableUser = () => __awaiter(void 0, void 0, void 0, function* () {
             
             `);
 });
+const createTableTask = () => __awaiter(void 0, void 0, void 0, function* () {
+    yield connection.raw(`
+        CREATE TABLE TodoTableTask (
+            id VARCHAR (255) PRIMARY KEY,
+            title VARCHAR (255) NOT NULL,
+            description TEXT NOT NULL,
+            status ENUM("to_do", "doing", "done") NOT NULL DEFAULT "to_do",
+            limit_date DATE NOT NULL,
+            creator_user_id VARCHAR (255) NOT NULL,
+            FOREIGN KEY (creator_user_id) REFERENCES user(id)
+            )
+            
+            `);
+});
+const createTasks = (id, title, description, status, limit_date, creator_user_id) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield connection.insert({
+            id,
+            title,
+            description,
+            status,
+            limit_date,
+            creator_user_id
+        }).into("TodoTableTask");
+    }
+    catch (err) {
+        console.log(err);
+    }
+});
+createTasks("01", "Criando primeira Tarefa", "Tarefa criada", "doing", new Date("2021-02-12"), "c");
 const createUser = (id, name, nickname, email) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield connection.raw(`
@@ -115,13 +145,4 @@ const createEndPointEditData = (req, res) => __awaiter(void 0, void 0, void 0, f
     }
 });
 app.put("/user/edit/:id", createEndPointEditData);
-const server = app.listen(process.env.PORT || 3000, () => {
-    if (server) {
-        const address = server.address();
-        console.log(`Server is running in http://localhost:${address.port}`);
-    }
-    else {
-        console.error(`Failure upon starting server.`);
-    }
-});
 //# sourceMappingURL=index.js.map

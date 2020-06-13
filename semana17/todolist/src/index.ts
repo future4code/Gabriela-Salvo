@@ -6,7 +6,7 @@ import { Request, Response } from "express"
 
 
 
-//*******************************CONFIGURAÇÃO DA CONEXÃO*************************************************/
+//*******************************CONFIGURAÇÃO DA CONEXÃO***************************************/
 
 
 dotenv.config();
@@ -22,7 +22,7 @@ const connection = knex({
 });
 
 
-/************************************CRIANDO TABELA USANDO RAW****************************************/
+/************************************CRIANDO TABELA USANDO RAW***********************************/
 
 
 
@@ -45,7 +45,83 @@ const createTableUser = async (): Promise<void> => {
 
 
 
-/**************************************CRIAR USUARIO COM RAW*********************************************/
+/**************************************CRIAR TABLE TASK************************************/
+
+
+
+
+
+const createTableTask = async (): Promise<void> => {
+    await connection.raw(
+        `
+        CREATE TABLE TodoTableTask (
+            id VARCHAR (255) PRIMARY KEY,
+            title VARCHAR (255) NOT NULL,
+            description TEXT NOT NULL,
+            status ENUM("to_do", "doing", "done") NOT NULL DEFAULT "to_do",
+            limit_date DATE NOT NULL,
+            creator_user_id VARCHAR (255) NOT NULL,
+            FOREIGN KEY (creator_user_id) REFERENCES user(id)
+            )
+            
+            `
+    )
+}
+// createTableTask()
+
+
+
+
+
+/************************************CRIANDO TASK INSERT INTO**********************************/
+
+
+
+
+const createTasks = async (id: string, title: string, description: string, status: string, limit_date: Date, creator_user_id: string): Promise<any> => {
+
+
+    try {
+        await connection.insert({
+            id,
+            title,
+            description,
+            status,
+            limit_date,
+            creator_user_id
+        }).into("TodoTableTask")
+
+    }catch(err) {
+        console.log(err)
+    }
+}
+    createTasks("01", "Criando primeira Tarefa", "Tarefa criada", "doing", new Date("2021-02-12"),"c")
+
+//     try {
+//         const result = await connection.raw(
+//             `
+//         INSERT INTO TodoTableTask 
+//         VALUES (
+//             "${id}", "${title}", "${description}", "${status}", "${limit_date}", "${creator_user_id}"
+//         )
+        
+//         `   )
+
+
+//     } catch (err) {
+//         console.error(err)
+//     }
+// }
+
+
+
+
+
+
+
+
+
+/**************************************CRIAR USUARIO COM RAW************************************/
 
 
 
@@ -184,27 +260,29 @@ const createEndPointEditData = async (req: Request, res: Response): Promise<any>
         const nickname = req.body.nickname
 
         await changeDataUser(id, name, nickname)
-        res.status(200).send({message:"Usuário alterado"})
+        res.status(200).send({ message: "Usuário alterado" })
     } catch (err) {
-        res.status(400).send({err:err.message})
+        res.status(400).send({ err: err.message })
     }
 }
 app.put("/user/edit/:id", createEndPointEditData)
 // changeDataUser
+
+
 
 /*******************************************CONFIGURANDO SERVER****************************************/
 
 
 
 
-const server = app.listen(process.env.PORT || 3000, () => {
-    if (server) {
-        const address = server.address() as AddressInfo;
-        console.log(`Server is running in http://localhost:${address.port}`);
-    } else {
-        console.error(`Failure upon starting server.`);
-    }
-});
+// const server = app.listen(process.env.PORT || 3000, () => {
+//     if (server) {
+//         const address = server.address() as AddressInfo;
+//         console.log(`Server is running in http://localhost:${address.port}`);
+//     } else {
+//         console.error(`Failure upon starting server.`);
+//     }
+// });
 
 
 
