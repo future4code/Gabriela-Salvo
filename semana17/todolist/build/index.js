@@ -66,7 +66,6 @@ const createTasks = (id, title, description, status, limit_date, creator_user_id
         console.log(err);
     }
 });
-createTasks("01", "Criando primeira Tarefa", "Tarefa criada", "doing", new Date("2021-02-12"), "c");
 const createUser = (id, name, nickname, email) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield connection.raw(`
@@ -121,6 +120,24 @@ const createEndPointUser = (req, res) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 app.post("/user", createEndPointUser);
+const createEndPoinTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const newTask = {
+            id: req.body.id,
+            title: req.body.title,
+            description: req.body.description,
+            status: req.body.status,
+            limit_date: req.body.limit_date,
+            creator_user_id: req.body.creator_user_id
+        };
+        yield createTasks(newTask.id, newTask.title, newTask.description, newTask.status, newTask.limit_date, newTask.creator_user_id);
+        res.status(200).send({ message: "To do criado com sucesso!" });
+    }
+    catch (err) {
+        res.status(400).send({ error: err.message });
+    }
+});
+app.post("/task", createEndPoinTask);
 const createEndPointId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
@@ -145,4 +162,13 @@ const createEndPointEditData = (req, res) => __awaiter(void 0, void 0, void 0, f
     }
 });
 app.put("/user/edit/:id", createEndPointEditData);
+const server = app.listen(process.env.PORT || 3000, () => {
+    if (server) {
+        const address = server.address();
+        console.log(`Server is running in http://localhost:${address.port}`);
+    }
+    else {
+        console.error(`Failure upon starting server.`);
+    }
+});
 //# sourceMappingURL=index.js.map

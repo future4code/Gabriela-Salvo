@@ -9,6 +9,9 @@ import { Request, Response } from "express"
 //*******************************CONFIGURAÇÃO DA CONEXÃO***************************************/
 
 
+
+
+
 dotenv.config();
 const connection = knex({
     client: "mysql",
@@ -95,7 +98,7 @@ const createTasks = async (id: string, title: string, description: string, statu
         console.log(err)
     }
 }
-    createTasks("01", "Criando primeira Tarefa", "Tarefa criada", "doing", new Date("2021-02-12"),"c")
+    //createTasks("01", "Criando primeira Tarefa", "Tarefa criada", "doing", new Date("2021-02-12"),"c")
 
 //     try {
 //         const result = await connection.raw(
@@ -228,13 +231,42 @@ app.post("/user", createEndPointUser)
 
 
 
-/************************************ENDPOINT GET BUSCAR USER POR ID*************************************/
+/************************************ENDPOINT PUT DE TASKS*************************************/
+
+const createEndPoinTask = async (req: Request, res: Response): Promise<void> =>{
+    try {
+        const newTask = {
+            id: req.body.id,
+            title:req.body.title,
+            description:req.body.description,
+            status:req.body.status,
+            limit_date:req.body.limit_date,
+            creator_user_id:req.body.creator_user_id
+        }
+
+        await createTasks(newTask.id, newTask.title,newTask.description, newTask.status, newTask.limit_date, newTask.creator_user_id)
+        res.status(200).send({message:"To do criado com sucesso!"})
+    }catch(err){
+        res.status(400).send({error:err.message})
+    }
+}
+app.post("/task", createEndPoinTask)
+
+
+
+
+
+/************************************ENDPOINT GET BUSCAR USER POR ID*********************************/
+
+
 
 
 
 
 
 const createEndPointId = async (req: Request, res: Response): Promise<void> => {
+
+
     try {
         const id = req.params.id;
         const result = await getUserById(id)
@@ -275,14 +307,14 @@ app.put("/user/edit/:id", createEndPointEditData)
 
 
 
-// const server = app.listen(process.env.PORT || 3000, () => {
-//     if (server) {
-//         const address = server.address() as AddressInfo;
-//         console.log(`Server is running in http://localhost:${address.port}`);
-//     } else {
-//         console.error(`Failure upon starting server.`);
-//     }
-// });
+const server = app.listen(process.env.PORT || 3000, () => {
+    if (server) {
+        const address = server.address() as AddressInfo;
+        console.log(`Servidor rodando :) http://localhost:${address.port}`);
+    } else {
+        console.error(`Falha em rodar o servidor. Tente novamente.`);
+    }
+});
 
 
 
