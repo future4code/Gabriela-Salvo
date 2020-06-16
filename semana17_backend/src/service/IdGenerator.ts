@@ -1,7 +1,10 @@
 import { v4 } from "uuid";
 
+
 export class IdGenerator {
-  public generate(): string {
-    return v4();
+  public generateId():string {
+    const id = v4()
+      return id;
+    
   }
 }

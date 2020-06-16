@@ -4,18 +4,31 @@ import { IdGenerator } from "./service/IdGenerator"
 
 import knex from "knex";
 import dotenv from "dotenv";
+import { connect } from "http2";
 
 dotenv.config();
 
+const userTableName = "User";
+
+const connection = knex({
+  client: "mysql",
+  connection: {
+    host: process.env.DB_HOST,
+    port: 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+  },
+});
 
 
 
 
+const newId: IdGenerator = new IdGenerator()
 
-const id: IdGenerator = new IdGenerator()
-id.generate()
+console.log(newId.generateId())
 
-console.log(id)
+const idNovo: IdGenerator = new IdGenerator()
 
 
 
@@ -32,3 +45,34 @@ const server = app.listen(process.env.PORT || 3003, () => {
   }
 });;
 
+const createUser= async (): Promise<any>=> {
+
+  const response = await connection.raw(
+    `
+    Create table userTableName (
+      id varchar(255) primary key,
+      email varchar (255) not null,
+      password varchar (255) not null
+    )
+    
+    `
+  )
+}
+// createUser()
+
+
+const insertIntoTable = async(id:string, email:string, password:string):Promise<any> =>{
+  const response = await connection.raw (
+    `
+    INSERT INTO userTableName 
+    VALUES (
+      "${id}",
+      "${email}",
+      "${password}"
+    )
+    
+    
+    `
+  )
+}
+insertIntoTable("001", "kylo_ren@starkiller.com","123")
