@@ -33,4 +33,7 @@ const connection = knex({
 });
 
 const newId = new IdGenerator
-console.log(newId.igGenerator())
+ const id = newId.idGenerator()
+
+const newJwt = new JwtAuthentiator
+console.log(newJwt.generateToken(id))
