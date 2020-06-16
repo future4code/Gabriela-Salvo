@@ -5,6 +5,7 @@ import { IdGenerator } from "./service/IdGenerator"
 import knex from "knex";
 import dotenv from "dotenv";
 import { connect } from "http2";
+import { JWT } from "./service/JWT";
 
 dotenv.config();
 
@@ -24,11 +25,6 @@ const connection = knex({
 
 
 
-const newId: IdGenerator = new IdGenerator()
-
-console.log(newId.generateId())
-
-const idNovo: IdGenerator = new IdGenerator()
 
 
 
@@ -75,4 +71,13 @@ const insertIntoTable = async(id:string, email:string, password:string):Promise<
     `
   )
 }
-insertIntoTable("001", "kylo_ren@starkiller.com","123")
+// insertIntoTable("001", "kylo_ren@starkiller.com","123")
+
+
+ const newId = new IdGenerator()
+ const id = newId.generateId()
+
+const auth = new JWT()
+const token = auth.generateToken(id)
+
+console.log(token)
