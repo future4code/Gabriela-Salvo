@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593458434171" clover="3.2.0">
-  <project timestamp="1593458434171" name="All files">
+<coverage generated="1593463082963" clover="3.2.0">
+  <project timestamp="1593463082963" name="All files">
     <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1" elements="7" coveredelements="5" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
     <file name="userPurchase.ts" path="/home/gabriela-salvo/Gabriela-Salvo/semana-19-testes-automatizados/jest-template/src/userPurchase.ts">
       <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
