@@ -10,46 +10,57 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const baseDatabase_1 = require("./baseDatabase");
-const user_1 = require("../business/entities/user");
-class UserDatabase extends baseDatabase_1.BaseDatabase {
+const User_1 = require("../model/User");
+class UserDatabase extends baseDatabase_1.BaseDataBase {
     constructor() {
         super(...arguments);
-        this.userTableName = "<EMPTY>";
+        this.tableName = "USUARIOS";
     }
-    fromDB(dbModel) {
-        return (dbModel &&
-            new user_1.User(dbModel.id, dbModel.name, dbModel.password, dbModel.email, dbModel.role));
+    UserModel(databaseModel) {
+        return (databaseModel &&
+            new User_1.User(databaseModel.id, databaseModel.name, databaseModel.email, databaseModel.password, databaseModel.role));
     }
-    createUser(band) {
+    createUser(user) {
+        const _super = Object.create(null, {
+            getConnection: { get: () => super.getConnection }
+        });
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.connection.raw(`
-      INSERT INTO ${this.userTableName} (id, name, music_genre, responsible)
-      VALUES(
-        '${band.getId()}',
-        '${band.getName()}',
-        '${band.getEmail()}',
-        '${band.getPassword()}',
-        '${band.getRole()}'
-      )
-    `);
+            yield _super.getConnection.call(this).raw(`
+            INSERT INTO ${this.tableName} (id, name, email, password. role)
+            VALUES (
+                '${user.getId()}',
+                '${user.getName()}',
+                '${user.getEmail}',
+                '${user.getPassword}',
+                '${user.getRole()}'
+                
+            )`);
         });
     }
-    getUserById(id) {
+    getUserByEmail(email) {
+        const _super = Object.create(null, {
+            getConnection: { get: () => super.getConnection }
+        });
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield this.connection.raw(`
-      SELECT * FROM ${this.userTableName}
-      WHERE id = '${id}'
-    `);
-            return this.fromDB(result[0][0]);
+            const result = yield _super.getConnection.call(this).raw(`
+            SELECT * from ${this.tableName} WHERE email = '${email}'
+            
+            
+            `);
+            return this.UserModel(result[0][0]);
         });
     }
-    getUserByName(name) {
+    getAllUsers() {
+        const _super = Object.create(null, {
+            getConnection: { get: () => super.getConnection }
+        });
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield this.connection.raw(`
-      SELECT * FROM ${this.userTableName}
-      WHERE name LIKE '%${name}%'
-    `);
-            return this.fromDB(result[0][0]);
+            const result = yield _super.getConnection.call(this).raw(`
+          SELECT * from ${this.tableName}
+        `);
+            return result[0].map((res) => {
+                return this.UserModel(res);
+            });
         });
     }
 }

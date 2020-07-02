@@ -12,29 +12,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const knex_1 = __importDefault(require("knex"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const knex_1 = __importDefault(require("knex"));
 dotenv_1.default.config();
-class BaseDatabase {
-    constructor() {
-        this.connectionData = {
-            host: process.env.DB_HOST,
-            port: Number(process.env.PORT || "3306"),
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_DATABASE
-        };
-        this.connection = knex_1.default({
-            client: "mysql",
-            connection: this.connectionData
-        });
+class BaseDataBase {
+    getConnection() {
+        if (BaseDataBase.connection === null) {
+            BaseDataBase.connection = knex_1.default({
+                client: "mysql",
+                connection: {
+                    host: process.env.DB_HOST,
+                    port: Number(process.env.PORT || "3306"),
+                    user: process.env.DB_USER,
+                    password: process.env.DB_PASSWORD,
+                    database: process.env.DB_DATABASE,
+                },
+            });
+        }
+        return BaseDataBase.connection;
     }
     destroyConnection() {
         return __awaiter(this, void 0, void 0, function* () {
-            if (this.connectionData) {
-                yield this.connection.destroy();
+            if (BaseDataBase.connection) {
+                yield BaseDataBase.connection.destroy();
             }
         });
     }
 }
-exports.BaseDatabase = BaseDatabase;
+exports.BaseDataBase = BaseDataBase;
+BaseDataBase.connection = null;

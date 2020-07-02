@@ -1,53 +1,51 @@
-import { BaseDatabase } from "./baseDatabase";
-import { BandGateway } from "../business/gateways/band";
-import { Band } from "../business/entities/band";
-import { User } from "../business/entities/user";
-import { UserGateway } from "../business/gateways/user";
+import { BaseDataBase } from './baseDatabase'
+import { User } from '../model/User'
 
-export class UserDatabase extends BaseDatabase implements UserGateway {
-  private userTableName: string = "USUARIOS";
+export class UserDatabase extends BaseDataBase {
+    protected tableName: string = "USUARIOS"
 
-  public fromDB(dbModel?: any): User | undefined {
-    return (
-      dbModel &&
-      new User(
-        dbModel.id,
-        dbModel.name,
-        dbModel.password,
-        dbModel.email,
-        dbModel.role
-      )
-    );
-  }
+    private UserModel(databaseModel?: any): User | undefined {
+        return (
+            databaseModel &&
+            new User(
+                databaseModel.id,
+                databaseModel.name,
+                databaseModel.email,
+                databaseModel.password,
+                databaseModel.role
+            )
+        )
+    }
 
-  public async createUser(band: User): Promise<void> {
-    await this.connection.raw(`
-      INSERT INTO ${this.userTableName} (id, name, music_genre, responsible)
-      VALUES(
-        '${band.getId()}',
-        '${band.getName()}',
-        '${band.getEmail()}',
-        '${band.getPassword()}',
-        '${band.getRole()}'
-      )
-    `);
-  }
-
-  public async getUserById(id: string): Promise<User | undefined> {
-    const result = await this.connection.raw(`
-      SELECT * FROM ${this.userTableName}
-      WHERE id = '${id}'
-    `);
-
-    return this.fromDB(result[0][0]);
-  }
-
-  public async getUserByName(name: string): Promise<User | undefined> {
-    const result = await this.connection.raw(`
-      SELECT * FROM ${this.userTableName}
-      WHERE name LIKE '%${name}%'
-    `);
-
-    return this.fromDB(result[0][0]);
-  }
+    public async createUser(user: User): Promise<void> {
+        await super.getConnection().raw(
+            `
+            INSERT INTO ${this.tableName} (id, name, email, password, role)
+            VALUES (
+                '${user.getId()}',
+                '${user.getName()}',
+                '${user.getEmail}',
+                '${user.getPassword}',
+                '${user.getRole()}'
+                
+            )`)
+    }
+    public async getUserByEmail(email: string): Promise<User | undefined> {
+        const result = await super.getConnection().raw(
+            `
+            SELECT * from ${this.tableName} WHERE email = '${email}'
+            
+            
+            `
+        )
+        return this.UserModel(result[0][0])
+    }
+    public async getAllUsers(): Promise<User[]> {
+        const result = await super.getConnection().raw(`
+          SELECT * from ${this.tableName}
+        `);
+        return result[0].map((res: any) => {
+            return this.UserModel(res);
+        });
+    }
 }
