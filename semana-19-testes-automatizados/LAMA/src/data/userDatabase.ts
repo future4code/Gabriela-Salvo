@@ -4,15 +4,15 @@ import { User } from '../model/User'
 export class UserDatabase extends BaseDataBase {
     protected tableName: string = "USUARIOS"
 
-    private UserModel(databaseModel?: any): User | undefined {
+    private UserModel(databaseModelUser?: any): User | undefined {
         return (
-            databaseModel &&
+            databaseModelUser &&
             new User(
-                databaseModel.id,
-                databaseModel.name,
-                databaseModel.email,
-                databaseModel.password,
-                databaseModel.role
+                databaseModelUser.id,
+                databaseModelUser.name,
+                databaseModelUser.email,
+                databaseModelUser.password,
+                databaseModelUser.role
             )
         )
     }
