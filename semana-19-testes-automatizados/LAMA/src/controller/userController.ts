@@ -26,14 +26,14 @@ export class UserController {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
   }
-  // public async login(req: Request, res: Response) {
-  //   const email = req.body.email;
-  //   const password = req.body.password;
-  //   try {
-  //     const result = await UserController.UserBusiness.login(email, password);
-  //     res.status(200).send(result);
-  //   } catch (err) {
-  //     res.status(err.errorCode || 400).send({ message: err.message });
-  //   }
-  // }
+   public async login(req: Request, res: Response) {
+     const email = req.body.email;
+     const password = req.body.password;
+     try {
+       const result = await UserController.UserBusiness.login(email, password);
+       res.status(200).send(result);
+     } catch (err) {
+       res.status(err.errorCode || 400).send({ message: err.message });
+     }
+   }
 }

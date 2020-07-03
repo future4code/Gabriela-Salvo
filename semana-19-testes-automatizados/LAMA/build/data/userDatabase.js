@@ -26,23 +26,20 @@ class UserDatabase extends baseDatabase_1.BaseDataBase {
         });
         return __awaiter(this, void 0, void 0, function* () {
             yield _super.getConnection.call(this).raw(`
-            INSERT INTO ${this.tableName} (id, name, email, password. role)
+            INSERT INTO ${this.tableName} (id, name, email, password, role)
             VALUES (
                 '${user.getId()}',
                 '${user.getName()}',
-                '${user.getEmail}',
-                '${user.getPassword}',
+                '${user.getEmail()}',
+                '${user.getPassword()}',
                 '${user.getRole()}'
                 
             )`);
         });
     }
     getUserByEmail(email) {
-        const _super = Object.create(null, {
-            getConnection: { get: () => super.getConnection }
-        });
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield _super.getConnection.call(this).raw(`
+            const result = yield this.getConnection().raw(`
             SELECT * from ${this.tableName} WHERE email = '${email}'
             
             

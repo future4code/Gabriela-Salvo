@@ -1,11 +1,9 @@
-import { UserDatabase } from "../data/userDatabase"
+import { UserDatabase } from "../data/userDatabase";
 import { User, stringToUserRole } from "../model/User";
 import { IdGenerator } from "../services/idGenerator";
-import {HashGenerator} from '../services/HashGenerator'
-import {Authenticator} from "../services/Authenticator"
+import { HashGenerator } from "../services/HashGenerator";
+import { Authenticator } from "../services/Authenticator";
 import { NotFoundError } from "../error/notFoundError";
-
-
 
 import { InvalidParameterError } from "../error/invalidParameterError";
 
@@ -23,7 +21,7 @@ export class UserBusiness {
     password: string,
     role: string
   ) {
-    if (!name || !email || !password ) {
+    if (!name || !email || !password) {
       throw new InvalidParameterError("Missing input");
     }
 
@@ -48,47 +46,47 @@ export class UserBusiness {
     });
     return { accessToken };
   }
-  
-//   public async getUserById(id: string) {
-//     const user = await this.userDatabase.getUserById(id);
 
-//     if (!user) {
-//       throw new NotFoundError("User not found");
-//     }
+  //   public async getUserById(id: string) {
+  //     const user = await this.userDatabase.getUserById(id);
 
-//     return {
-//       id: user.getId(),
-//       name: user.getName(),
-//       email: user.getEmail(),
-//       role: user.getRole(),
-//     };
-//   }
+  //     if (!user) {
+  //       throw new NotFoundError("User not found");
+  //     }
 
-//   public async login(email: string, password: string) {
-//     if (!email || !password) {
-//       throw new InvalidParameterError("Missing input");
-//     }
+  //     return {
+  //       id: user.getId(),
+  //       name: user.getName(),
+  //       email: user.getEmail(),
+  //       role: user.getRole(),
+  //     };
+  //   }
 
-//     const user = await this.userDatabase.getUserByEmail(email);
+  public async login(email: string, password: string) {
+    if (!email || !password) {
+      throw new InvalidParameterError("Missing input");
+    }
 
-//     if (!user) {
-//       throw new NotFoundError("User not found");
-//     }
+    const user = await this.userDatabase.getUserByEmail(email);
 
-//     const isPasswordCorrect = await this.hashGenerator.compareHash(
-//       password,
-//       user.getPassword()
-//     );
+    if (!user) {
+      throw new NotFoundError("User not found");
+    }
 
-//     if (!isPasswordCorrect) {
-//       throw new InvalidParameterError("Invalid password");
-//     }
+    const isPasswordCorrect = await this.hashGenerator.compareHash(
+      password,
+      user.getPassword()
+    );
 
-//     const accessToken = this.tokenGenerator.generate({
-//       id: user.getId(),
-//       role: user.getRole(),
-//     });
+    if (!isPasswordCorrect) {
+      throw new InvalidParameterError("Invalid password");
+    }
 
-//     return { accessToken };
-//   }
+    const accessToken = this.tokenGenerator.generate({
+      id: user.getId(),
+      role: user.getRole(),
+    });
+
+    return { accessToken };
+  }
 }

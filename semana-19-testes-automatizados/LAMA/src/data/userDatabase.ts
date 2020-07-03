@@ -24,14 +24,14 @@ export class UserDatabase extends BaseDataBase {
             VALUES (
                 '${user.getId()}',
                 '${user.getName()}',
-                '${user.getEmail}',
-                '${user.getPassword}',
+                '${user.getEmail()}',
+                '${user.getPassword()}',
                 '${user.getRole()}'
                 
             )`)
     }
     public async getUserByEmail(email: string): Promise<User | undefined> {
-        const result = await super.getConnection().raw(
+        const result = await this.getConnection().raw(
             `
             SELECT * from ${this.tableName} WHERE email = '${email}'
             
