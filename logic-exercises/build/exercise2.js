@@ -1,6 +1,17 @@
-const arrayNumber2 = [2, 3, 4, 5, 6, 34, 65, 89, 23, 3000];
-function turnArrayInObject(array) {
-    return { min: Math.min.apply(Math, arrayNumber2), max: Math.max.apply(Math, arrayNumber2) };
+function receiveString(phrase) {
+    const phraseValue = phrase.split("");
+    const phraseLenght = {
+        lenght: phrase.length,
+        firstCaracter: phrase[0],
+        phrase: phraseValue,
+        lastCaracter: phrase[phrase.length - 1]
+    };
+    return phraseLenght;
 }
-console.log(turnArrayInObject(arrayNumber2));
+console.log(receiveString("Jogar um videogame, beber um café...molhar minhas plantinhas no Animal Crossing"));
+const returnSplitPhrase = (a) => {
+    const splitedPhrase = a.split("");
+    return splitedPhrase;
+};
+console.log(returnSplitPhrase("Jogar the last of us part2 hoje viu"));
 //# sourceMappingURL=exercise2.js.map
