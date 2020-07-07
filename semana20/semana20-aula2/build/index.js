@@ -16,5 +16,4 @@ function handler() {
     });
 }
 exports.handler = handler;
-handler();
 //# sourceMappingURL=index.js.map
