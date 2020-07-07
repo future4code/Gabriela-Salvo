@@ -42,7 +42,7 @@ app.post("/signup", async (req: Request, res: Response) => {
     const authenticator = new JwtAuthentiator()
     const token = authenticator.generateToken(id)
     res.status(200).send({
-      token: " "
+      token: token
     })
 
   } catch (err) {
@@ -52,16 +52,6 @@ app.post("/signup", async (req: Request, res: Response) => {
   }
 })
 
-// const connection = knex({
-//   client: "mysql",
-//   connection: {
-//     host: process.env.DB_HOST,
-//     port: 3306,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_DATABASE,
-//   },
-// });
 
 const newId = new IdGenerator
 const id = newId.idGenerator()
