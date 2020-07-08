@@ -1,0 +1,62 @@
+b. Qual o retorno da função se ela receber um objeto vazio de entrada?
+
+O retorno da função foi: 
+
+Response:
+{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing input\"}"
+}
+
+
+c.
+
+o retorno foi:
+
+{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing input\"}"
+}
+
+
+d. 
+
+Response:
+{
+  "statusCode": 400,
+  "body": "{\"message\":\"Missing email\"}"
+}
+
+
+e.
+
+Response:
+{
+  "statusCode": 400,
+  "body": "{\"message\":\"Invalid password\"}"
+}
+
+f.
+
+Response:
+{
+  "statusCode": 200,
+  "body": "{\"message\":\"User is correct\"}"
+}
+
+g.
+}if(user.email.indexOf('@')=== -1  || (user.email.indexOf(".com")))
+  return{
+      statusCode: 412,
+      body: JSON.stringify({message:"Invalid email"})
+
+h. 
+{
+  "user": {
+		"info": {
+			"name": "Ellie",
+			"email": "ellie@tlou.com.br",
+			"password": "12345678"
+		}
+  }
+}      
