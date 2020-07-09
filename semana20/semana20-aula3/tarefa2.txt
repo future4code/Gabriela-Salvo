@@ -1,0 +1,4 @@
+1 - null, undefined ou o valor input
+2- o lambda transforma a saída em string e o parse json transforma em objeto.
+3- ele verifica se estamos recebendo o corpo e o parâmetro válido
+4 - Quando está faltando uma querie ou um input do corpo
