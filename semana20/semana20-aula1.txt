@@ -1,0 +1,3 @@
+Tive um pouco de dificuldade na parte da senha porque tinha setado exatamente igual a como está no tutorial, ai quando ia entrar no msql não acertava a senha nunca. Profesores Goli e Amanda me ajudaram nessa saga. 
+
+Tirando isso foi bem tranquilo.
