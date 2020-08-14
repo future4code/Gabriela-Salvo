@@ -2,21 +2,31 @@
 
 
 
-function sumNumbers ():any {
-    const nums:any=[1,5,3,8,4]
-    const target:any=[11]
+// function sumNumbers ():any {
+//     
+//     const target:Number[]=[11]
 
-    for(let i = 0; i < nums.length; i++) {
-        nums.forEach(element => {
-            element + [i] === target
+//     for(let i = 0; i < nums.length; i++) {
+//         nums.forEach(element => {
+//             element === target
             
-        });
+//         });
 
         
-    }
+//     }
+
+// }
+// console.log(sumNumbers())
+
+function returnSum(arr:any, target:any) {
+    const nums:any=[1,5,3,8,4]
+    const target1:any=[11]
+    nums.forEach(element=> {
+        element + [0]
+    })
+
 
 }
-console.log(sumNumbers())
 
 // nums.reduce()
 
